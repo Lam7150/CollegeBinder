@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">CollegeBinder</string>
+    <string name="edit_message">Search a College</string>
+    <string name="button_search">Search</string>
 </resources>
