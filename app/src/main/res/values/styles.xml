@@ -7,5 +7,29 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <style name="CollegeName">
+        <item name="android:textStyle"> bold </item>
+    </style>
+
+    <style name="TableHeading" parent="CollegeName">
+        <item name="android:textSize"> 20sp </item>
+    </style>
+
+    <style name="Divider">
+        <item name="android:layout_width">1dip</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">#000000</item>
+    </style>
+
+    <style name="Divider_invisible">
+        <item name="android:layout_width">1dip</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="Cell">
+        <item name="android:paddingLeft">5dp</item>
+    </style>
 
 </resources>
+
+
