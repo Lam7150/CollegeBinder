@@ -24,10 +24,6 @@ public class SearchActivity extends AppCompatActivity {
 
     }
     public void viewData(View view) {
-        //Intent intent = new Intent(this, SearchActivity.class);
-        //EditText editText = (EditText) findViewById(R.id.editText);
-        //String message = editText.getText().toString();
-        //intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(new Intent(SearchActivity.this, CollegeDataActivity.class));
     }
 }
