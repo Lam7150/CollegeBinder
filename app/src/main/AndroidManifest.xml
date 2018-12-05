@@ -13,12 +13,11 @@
         tools:ignore="GoogleAppIndexingWarning"
         android:fullBackupContent="@xml/backup_descriptor">
     <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
         <activity
             android:name=".SearchActivity"
             android:parentActivityName=".MainActivity">
@@ -26,7 +25,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity"
                 android:label="@string/app_name"/>
-            </activity>
+        </activity>
     </application>
 
 </manifest>

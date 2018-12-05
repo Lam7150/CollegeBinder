@@ -48,96 +48,55 @@
 
         <View
             android:layout_width="match_parent"
+            android:paddingLeft="10dp"
             android:layout_height="1dp"
             android:background="@android:color/darker_gray"/>
 
         <TableRow>
-            <TextView style="@style/Cell" android:text="@string/location"
-                android:layout_width="0dp"
-                android:layout_column="0"
-                android:layout_weight="0.5"/>
-
-            <TextView style="@style/Cell" android:text="@string/champaign_il"
-                android:layout_width="0dp"
-                android:layout_column="1"
-                android:layout_weight="0.5">
+            <TextView style="@style/Cell" android:text="@string/location" />
+            <TextView style="@style/Divider" android:text="" />
+            <TextView style="@style/Cell" android:text="@string/champaign_il">
             </TextView>
         </TableRow>
         <TableRow>
-            <TextView style="@style/Cell" android:text="@string/highest_education"
-                android:layout_width="0dp"
-                android:layout_column="0"
-                android:layout_weight="0.5"/>
-            <TextView style="@style/Cell" android:text="@string/post_doctorate"
-                android:layout_width="0dp"
-                android:layout_column="1"
-                android:layout_weight="0.5">
+            <TextView style="@style/Cell" android:text="@string/highest_education" />
+            <TextView style="@style/Divider" android:text="" />
+            <TextView style="@style/Cell" android:text="@string/post_doctorate">
             </TextView>
         </TableRow>
         <TableRow>
-            <TextView style="@style/Cell" android:text="@string/campus"
-                android:layout_width="0dp"
-                android:layout_column="0"
-                android:layout_weight="0.5"/>
-            <TextView style="@style/Cell" android:text="@string/rural"
-                android:layout_width="0dp"
-                android:layout_column="1"
-                android:layout_weight="0.5">
+            <TextView style="@style/Cell" android:text="@string/campus" />
+            <TextView style="@style/Divider" android:text="" />
+            <TextView style="@style/Cell" android:text="@string/rural">
             </TextView>
         </TableRow>
         <TableRow>
-            <TextView style="@style/Cell" android:text="@string/student_size"
-                android:layout_width="0dp"
-                android:layout_column="0"
-                android:layout_weight="0.5"/>
-            <TextView style="@style/Cell" android:text="@string/_40_000_"
-                android:layout_width="0dp"
-                android:layout_column="1"
-                android:layout_weight="0.5">
+            <TextView style="@style/Cell" android:text="@string/student_size" />
+            <TextView style="@style/Divider" android:text="" />
+            <TextView style="@style/Cell" android:text="@string/_40_000_">
             </TextView>
         </TableRow>
         <TableRow>
-            <TextView style="@style/Cell" android:text="@string/religious_affiliation"
-                android:layout_width="0dp"
-                android:layout_column="0"
-                android:layout_weight="0.5"/>
-            <TextView style="@style/Cell" android:text="@string/none"
-                android:layout_width="0dp"
-                android:layout_column="1"
-                android:layout_weight="0.5">
+            <TextView style="@style/Cell" android:text="@string/religious_affiliation" />
+            <TextView style="@style/Divider" android:text="" />
+            <TextView style="@style/Cell" android:text="@string/none">
             </TextView>
         </TableRow>
         <TableRow>
-            <TextView style="@style/Cell" android:text="@string/admission_rate"
-                android:layout_width="0dp"
-                android:layout_column="0"
-                android:layout_weight="0.5"/>
-            <TextView style="@style/Cell" android:text="@string/_66"
-                android:layout_width="0dp"
-                android:layout_column="1"
-                android:layout_weight="0.5">
+            <TextView style="@style/Cell" android:text="@string/admission_rate" />
+            <TextView style="@style/Divider" android:text="" />
+            <TextView style="@style/Cell" android:text="@string/_66">
             </TextView>
         </TableRow>
         <TableRow>
-            <TextView style="@style/Cell" android:text="@string/average_net_cost"
-                android:layout_width="0dp"
-                android:layout_column="0"
-                android:layout_weight="0.5"/>
-            <TextView style="@style/Cell" android:text="@string/_16_000"
-                android:layout_width="0dp"
-                android:layout_column="1"
-                android:layout_weight="0.5">
+            <TextView style="@style/Cell" android:text="@string/average_net_cost" />
+            <TextView style="@style/Divider" android:text="" />
+            <TextView style="@style/Cell" android:text="@string/_16_000">
             </TextView>
         </TableRow>
         <TableRow>
-            <TextView style="@style/Cell" android:text=""
-                android:layout_width="0dp"
-                android:layout_column="0"
-                android:layout_weight="0.5"/>
-            <TextView style="@style/Cell" android:text=""
-                android:layout_width="0dp"
-                android:layout_column="1"
-                android:layout_weight="0.5">
+            <TextView style="@style/Cell" android:text="" />
+            <TextView style="@style/Cell" android:text="">
             </TextView>
         </TableRow>
 
@@ -164,80 +123,44 @@
             android:background="@android:color/darker_gray"/>
 
         <TableRow>
-            <TextView style="@style/Cell" android:text="@string/admission_rate"
-                android:layout_width="0dp"
-                android:layout_column="0"
-                android:layout_weight="0.5"/>
-            <TextView style="@style/Cell" android:text="@string/_66"
-                android:layout_width="0dp"
-                android:layout_column="1"
-                android:layout_weight="0.5">
+            <TextView style="@style/Cell" android:text="@string/admission_rate" />
+            <TextView style="@style/Divider" android:text="" />
+            <TextView style="@style/Cell" android:text="@string/_66">
             </TextView>
         </TableRow>
         <TableRow>
-            <TextView style="@style/Cell" android:text="@string/sat_overall_25_75th_percentile"
-                android:layout_width="0dp"
-                android:layout_column="0"
-                android:layout_weight="0.5"/>
-            <TextView style="@style/Cell" android:text="@string/_1310_1480"
-                android:layout_width="0dp"
-                android:layout_column="1"
-                android:layout_weight="0.5">
+            <TextView style="@style/Cell" android:text="@string/sat_overall_25_75th_percentile" />
+            <TextView style="@style/Divider" android:text="" />
+            <TextView style="@style/Cell" android:text="@string/_1310_1480">
             </TextView>
         </TableRow>
         <TableRow>
-            <TextView style="@style/Cell" android:text="@string/sat_math"
-                android:layout_width="0dp"
-                android:layout_column="0"
-                android:layout_weight="0.5"/>
-            <TextView style="@style/Cell" android:text="@string/_730_790"
-                android:layout_width="0dp"
-                android:layout_column="1"
-                android:layout_weight="0.5">
+            <TextView style="@style/Cell" android:text="@string/sat_math" />
+            <TextView style="@style/Divider" android:text="" />
+            <TextView style="@style/Cell" android:text="@string/_730_790">
             </TextView>
         </TableRow>
         <TableRow>
-            <TextView style="@style/Cell" android:text="@string/sat_reading"
-                android:layout_width="0dp"
-                android:layout_column="0"
-                android:layout_weight="0.5"/>
-            <TextView style="@style/Cell" android:text="@string/_30_36"
-                android:layout_width="0dp"
-                android:layout_column="1"
-                android:layout_weight="0.5">
+            <TextView style="@style/Cell" android:text="@string/sat_reading" />
+            <TextView style="@style/Divider" android:text="" />
+            <TextView style="@style/Cell" android:text="@string/_30_36">
             </TextView>
         </TableRow>
         <TableRow>
-            <TextView style="@style/Cell" android:text="@string/sat_writing"
-                android:layout_width="0dp"
-                android:layout_column="0"
-                android:layout_weight="0.5"/>
-            <TextView style="@style/Cell" android:text="@string/_32_36"
-                android:layout_width="0dp"
-                android:layout_column="1"
-                android:layout_weight="0.5">
+            <TextView style="@style/Cell" android:text="@string/sat_writing" />
+            <TextView style="@style/Divider" android:text="" />
+            <TextView style="@style/Cell" android:text="@string/_32_36">
             </TextView>
         </TableRow>
         <TableRow>
-            <TextView style="@style/Cell" android:text="@string/act_composite"
-                android:layout_width="0dp"
-                android:layout_column="0"
-                android:layout_weight="0.5"/>
-            <TextView style="@style/Cell" android:text="@string/_27_33"
-                android:layout_width="0dp"
-                android:layout_column="1"
-                android:layout_weight="0.5">
+            <TextView style="@style/Cell" android:text="@string/act_composite" />
+            <TextView style="@style/Divider" android:text="" />
+            <TextView style="@style/Cell" android:text="@string/_27_33">
             </TextView>
         </TableRow>
         <TableRow>
-            <TextView style="@style/Cell" android:text=""
-                android:layout_width="0dp"
-                android:layout_column="0"
-                android:layout_weight="0.5"/>
-            <TextView style="@style/Cell" android:text=""
-                android:layout_width="0dp"
-                android:layout_column="1"
-                android:layout_weight="0.5">
+            <TextView style="@style/Cell" android:text="" />
+            <TextView style="@style/Cell" android:text="">
             </TextView>
         </TableRow>
 
@@ -264,69 +187,38 @@
             android:background="@android:color/darker_gray"/>
 
         <TableRow>
-            <TextView style="@style/Cell" android:text="@string/median_earnings_6_years_after_grad"
-                android:layout_width="0dp"
-                android:layout_column="0"
-                android:layout_weight="0.5"/>
-            <TextView style="@style/Cell" android:text="@string/_67_000"
-                android:layout_width="0dp"
-                android:layout_column="1"
-                android:layout_weight="0.5">
+            <TextView style="@style/Cell" android:text="@string/median_earnings_6_years_after_grad" />
+            <TextView style="@style/Divider" android:text="" />
+            <TextView style="@style/Cell" android:text="@string/_67_000">
             </TextView>
         </TableRow>
         <TableRow>
-            <TextView style="@style/Cell" android:text="@string/in_state_tuition"
-                android:layout_width="0dp"
-                android:layout_column="0"
-                android:layout_weight="0.5"/>
-            <TextView style="@style/Cell" android:text="@string/_26_000"
-                android:layout_width="0dp"
-                android:layout_column="1"
-                android:layout_weight="0.5">
+            <TextView style="@style/Cell" android:text="@string/in_state_tuition" />
+            <TextView style="@style/Divider" android:text="" />
+            <TextView style="@style/Cell" android:text="@string/_26_000">
             </TextView>
         </TableRow>
         <TableRow>
-            <TextView style="@style/Cell" android:text="@string/out_of_state_tuition"
-                android:layout_width="0dp"
-                android:layout_column="0"
-                android:layout_weight="0.5"/>
-            <TextView style="@style/Cell" android:text="@string/_52_000"
-                android:layout_width="0dp"
-                android:layout_column="1"
-                android:layout_weight="0.5">
+            <TextView style="@style/Cell" android:text="@string/out_of_state_tuition" />
+            <TextView style="@style/Divider" android:text="" />
+            <TextView style="@style/Cell" android:text="@string/_52_000">
             </TextView>
         </TableRow>
         <TableRow>
-            <TextView style="@style/Cell" android:text="@string/debt_after_graduation_25th_75th_percentile"
-                android:layout_width="0dp"
-                android:layout_column="0"
-                android:layout_weight="0.5"/>
-            <TextView style="@style/Cell" android:text="@string/_32_000_80_000"
-                android:layout_width="0dp"
-                android:layout_column="1"
-                android:layout_weight="0.5">
+            <TextView style="@style/Cell" android:text="@string/debt_after_graduation_25th_75th_percentile" />
+            <TextView style="@style/Divider" android:text="" />
+            <TextView style="@style/Cell" android:text="@string/_32_000_80_000">
             </TextView>
         </TableRow>
         <TableRow>
-            <TextView style="@style/Cell" android:text="@string/percent_of_students_receiving_financial_aid"
-                android:layout_width="0dp"
-                android:layout_column="0"
-                android:layout_weight="0.5"/>
-            <TextView style="@style/Cell" android:text="@string/_60"
-                android:layout_width="0dp"
-                android:layout_column="1"
-                android:layout_weight="0.5">
+            <TextView style="@style/Cell" android:text="@string/percent_of_students_receiving_financial_aid" />
+            <TextView style="@style/Divider" android:text="" />
+            <TextView style="@style/Cell" android:text="@string/_60">
             </TextView>
         </TableRow>
         <TableRow>
-            <TextView style="@style/Cell" android:text=""
-                android:layout_width="0dp"
-                android:layout_column="0"
-                android:layout_weight="0.5"/>
-            <TextView style="@style/Cell" android:text=""
-                android:layout_width="0dp"
-                android:layout_column="1"
-                android:layout_weight="0.5">
+            <TextView style="@style/Cell" android:text="" />
+            <TextView style="@style/Cell" android:text="">
             </TextView>
         </TableRow>
 
@@ -353,113 +245,59 @@
             android:background="@android:color/darker_gray"/>
 
         <TableRow>
-            <TextView style="@style/Cell" android:text="@string/percent_male"
-                android:layout_width="0dp"
-                android:layout_column="0"
-                android:layout_weight="0.5"/>
-            <TextView style="@style/Cell" android:text="@string/_50"
-                android:layout_width="0dp"
-                android:layout_column="1"
-                android:layout_weight="0.5">
+            <TextView style="@style/Cell" android:text="@string/percent_male" />
+            <TextView style="@style/Divider" android:text="" />
+            <TextView style="@style/Cell" android:text="@string/_50">
             </TextView>
         </TableRow>
         <TableRow>
-            <TextView style="@style/Cell" android:text="@string/percent_female"
-                android:layout_width="0dp"
-                android:layout_column="0"
-                android:layout_weight="0.5"/>
-            <TextView style="@style/Cell" android:text="@string/_50"
-                android:layout_width="0dp"
-                android:layout_column="1"
-                android:layout_weight="0.5">
+            <TextView style="@style/Cell" android:text="@string/percent_female" />
+            <TextView style="@style/Divider" android:text="" />
+            <TextView style="@style/Cell" android:text="@string/_50">
             </TextView>
         </TableRow>
         <TableRow>
-            <TextView style="@style/Cell" android:text="@string/percent_caucasian"
-                android:layout_width="0dp"
-                android:layout_column="0"
-                android:layout_weight="0.5"/>
-            <TextView style="@style/Cell" android:text="@string/_40"
-                android:layout_width="0dp"
-                android:layout_column="1"
-                android:layout_weight="0.5">
+            <TextView style="@style/Cell" android:text="@string/percent_caucasian" />
+            <TextView style="@style/Divider" android:text="" />
+            <TextView style="@style/Cell" android:text="@string/_40">
             </TextView>
         </TableRow>
         <TableRow>
-            <TextView style="@style/Cell" android:text="@string/percent_asian"
-                android:layout_width="0dp"
-                android:layout_column="0"
-                android:layout_weight="0.5"/>
-            <TextView style="@style/Cell" android:text="@string/_34"
-                android:layout_width="0dp"
-                android:layout_column="1"
-                android:layout_weight="0.5">
+            <TextView style="@style/Cell" android:text="@string/percent_asian" />
+            <TextView style="@style/Divider" android:text="" />
+            <TextView style="@style/Cell" android:text="@string/_34">
             </TextView>
         </TableRow>
         <TableRow>
-            <TextView style="@style/Cell" android:text="@string/percent_black_african_american"
-                android:layout_width="0dp"
-                android:layout_column="0"
-                android:layout_weight="0.5"/>
-            <TextView style="@style/Cell" android:text="@string/_14"
-                android:layout_width="0dp"
-                android:layout_column="1"
-                android:layout_weight="0.5">
+            <TextView style="@style/Cell" android:text="@string/percent_black_african_american" />
+            <TextView style="@style/Divider" android:text="" />
+            <TextView style="@style/Cell" android:text="@string/_14"/>
+        </TableRow>
+        <TableRow>
+            <TextView style="@style/Cell" android:text="@string/percent_latino_hispanic_other" />
+            <TextView style="@style/Divider" android:text="" />
+            <TextView style="@style/Cell" android:text="@string/_16"/>
+        </TableRow>
+        <TableRow>
+            <TextView style="@style/Cell" android:text="@string/percent_first_gen" />
+            <TextView style="@style/Divider" android:text="" />
+            <TextView style="@style/Cell" android:text="@string/_40"/>
+        </TableRow>
+        <TableRow>
+            <TextView style="@style/Cell" android:text="@string/number_of_undergrads" />
+            <TextView style="@style/Divider" android:text="" />
+            <TextView style="@style/Cell" android:text="@string/_40_000">
             </TextView>
         </TableRow>
         <TableRow>
-            <TextView style="@style/Cell" android:text="@string/percent_latino_hispanic_other"
-                android:layout_width="0dp"
-                android:layout_column="0"
-                android:layout_weight="0.5"/>
-            <TextView style="@style/Cell" android:text="@string/_16"
-                android:layout_width="0dp"
-                android:layout_column="1"
-                android:layout_weight="0.5">
+            <TextView style="@style/Cell" android:text="@string/number_of_grads" />
+            <TextView style="@style/Divider" android:text="" />
+            <TextView style="@style/Cell" android:text="@string/_5_000">
             </TextView>
         </TableRow>
         <TableRow>
-            <TextView style="@style/Cell" android:text="@string/percent_first_gen"
-                android:layout_width="0dp"
-                android:layout_column="0"
-                android:layout_weight="0.5"/>
-            <TextView style="@style/Cell" android:text="@string/_40"
-                android:layout_width="0dp"
-                android:layout_column="1"
-                android:layout_weight="0.5">
-            </TextView>
-        </TableRow>
-        <TableRow>
-            <TextView style="@style/Cell" android:text="@string/number_of_undergrads"
-                android:layout_width="0dp"
-                android:layout_column="0"
-                android:layout_weight="0.5"/>
-            <TextView style="@style/Cell" android:text="@string/_40_000"
-                android:layout_width="0dp"
-                android:layout_column="1"
-                android:layout_weight="0.5">
-            </TextView>
-        </TableRow>
-        <TableRow>
-            <TextView style="@style/Cell" android:text="@string/number_of_grads"
-                android:layout_width="0dp"
-                android:layout_column="0"
-                android:layout_weight="0.5"/>
-            <TextView style="@style/Cell" android:text="@string/_5_000"
-                android:layout_width="0dp"
-                android:layout_column="1"
-                android:layout_weight="0.5">
-            </TextView>
-        </TableRow>
-        <TableRow>
-            <TextView style="@style/Cell" android:text=""
-                android:layout_width="0dp"
-                android:layout_column="0"
-                android:layout_weight="0.5"/>
-            <TextView style="@style/Cell" android:text=""
-                android:layout_width="0dp"
-                android:layout_column="1"
-                android:layout_weight="0.5">
+            <TextView style="@style/Cell" android:text="" />
+            <TextView style="@style/Cell" android:text="">
             </TextView>
         </TableRow>
 
@@ -486,47 +324,18 @@
             android:background="@android:color/darker_gray"/>
 
         <TableRow>
-            <TextView style="@style/Cell" android:text="@string/net_tuition_revenue_per_student"
-                android:layout_width="0dp"
-                android:layout_column="0"
-                android:layout_weight="0.5"/>
-            <TextView style="@style/Cell" android:text="@string/_16_000"
-                android:layout_width="0dp"
-                android:layout_column="1"
-                android:layout_weight="0.5">
+            <TextView style="@style/Cell" android:text="@string/net_tuition_revenue_per_student" />
+            <TextView style="@style/Divider" android:text="" />
+            <TextView style="@style/Cell" android:text="@string/_16_000">
             </TextView>
         </TableRow>
         <TableRow>
-            <TextView style="@style/Cell" android:text="@string/average_faculty_salary"
-                android:layout_width="0dp"
-                android:layout_column="0"
-                android:layout_weight="0.5"/>
-            <TextView style="@style/Cell" android:text="@string/_110_000"
-                android:layout_width="0dp"
-                android:layout_column="1"
-                android:layout_weight="0.5">
+            <TextView style="@style/Cell" android:text="@string/average_faculty_salary"/>
+            <TextView style="@style/Divider" android:text="" />
+            <TextView style="@style/Cell" android:text="@string/_110_000">
             </TextView>
         </TableRow>
 
     </TableLayout>
-
-    <!--<TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-
-        <TableRow>
-            <TextView style="@style/Cell" android:text="Noooooo"
-                android:layout_width="0dp"
-                android:layout_column="0"
-                android:layout_weight="0.5"/>
-            <TextView style="@style/Cell" android:text="Champaign, IL"
-                android:layout_width="0dp"
-                android:layout_column="1"
-                android:layout_weight="0.5">
-            </TextView>
-        </TableRow>
-    </TableLayout>-->
-
 
 </ScrollView>
