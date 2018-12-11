@@ -12,12 +12,12 @@
         android:stretchColumns="1">
 
         <ScrollView android:layout_height="70dp">
-            <TableLayout android:id="@+id/college_name"
-                android:layout_width="fill_parent"
+            <TableLayout android:layout_width="fill_parent"
                 android:layout_height="wrap_content">
                 <TableRow>
                     <TextView style="@style/CollegeName"
-                        android:text="@string/university_of_illinois_at_urbana_champaign"
+                        android:id="@+id/name"
+                        android:text="@string/college_name"
                         android:textSize="25sp"
                         android:layout_width="120dp"
                         android:layout_column="0"
@@ -55,44 +55,37 @@
         <TableRow>
             <TextView style="@style/Cell" android:text="@string/location" />
             <TextView style="@style/Divider" android:text="" />
-            <TextView style="@style/Cell" android:text="@string/champaign_il">
-            </TextView>
+            <TextView style="@style/Cell" android:id="@+id/location" />
         </TableRow>
         <TableRow>
             <TextView style="@style/Cell" android:text="@string/highest_education" />
             <TextView style="@style/Divider" android:text="" />
-            <TextView style="@style/Cell" android:text="@string/post_doctorate">
-            </TextView>
+            <TextView style="@style/Cell" android:id="@+id/degrees_awarded.highest" />
         </TableRow>
         <TableRow>
             <TextView style="@style/Cell" android:text="@string/campus" />
             <TextView style="@style/Divider" android:text="" />
-            <TextView style="@style/Cell" android:text="@string/rural">
-            </TextView>
+            <TextView style="@style/Cell" android:id="@+id/locale" />
         </TableRow>
         <TableRow>
             <TextView style="@style/Cell" android:text="@string/student_size" />
             <TextView style="@style/Divider" android:text="" />
-            <TextView style="@style/Cell" android:text="@string/_40_000_">
-            </TextView>
+            <TextView style="@style/Cell" android:id="@+id/number_of_students" />
         </TableRow>
         <TableRow>
             <TextView style="@style/Cell" android:text="@string/religious_affiliation" />
             <TextView style="@style/Divider" android:text="" />
-            <TextView style="@style/Cell" android:text="@string/none">
-            </TextView>
+            <TextView style="@style/Cell" android:id="@+id/religious_affiliation" />
         </TableRow>
         <TableRow>
             <TextView style="@style/Cell" android:text="@string/admission_rate" />
             <TextView style="@style/Divider" android:text="" />
-            <TextView style="@style/Cell" android:text="@string/_66">
-            </TextView>
+            <TextView style="@style/Cell" android:id="@+id/admission_rate_overall" />
         </TableRow>
         <TableRow>
             <TextView style="@style/Cell" android:text="@string/average_net_cost" />
             <TextView style="@style/Divider" android:text="" />
-            <TextView style="@style/Cell" android:text="@string/_16_000">
-            </TextView>
+            <TextView style="@style/Cell" android:id="@+id/avg_net_price" />
         </TableRow>
         <TableRow>
             <TextView style="@style/Cell" android:text="" />
@@ -125,8 +118,7 @@
         <TableRow>
             <TextView style="@style/Cell" android:text="@string/admission_rate" />
             <TextView style="@style/Divider" android:text="" />
-            <TextView style="@style/Cell" android:text="@string/_66">
-            </TextView>
+            <TextView style="@style/Cell" android:id="@+id/admission_rate_overall2" />
         </TableRow>
         <TableRow>
             <TextView style="@style/Cell" android:text="@string/sat_overall_25_75th_percentile" />
