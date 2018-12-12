@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
@@ -70,15 +71,32 @@ public class SearchActivity extends AppCompatActivity {
 
             }
         });
+        /**
+        lv.setSelected(true);
+        lv.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                final String selected = (String) parent.getSelectedItem();
+                Intent intent = new Intent(getApplicationContext(), CollegeDataActivity.class);
+                intent.putExtra("collegeName", selected);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                return;
+            }
+        }); */
 
         /** Allow any list_view item to be clicked, triggers the CollegeDataActivity when clicked */
         lv.setClickable(true);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                //Toast.makeText(SearchActivity.this, adapter.getItem(i).toString(), Toast.LENGTH_SHORT).show();
+            public void onItemClick(AdapterView<?> parent, View view, int i, long l) {
+                //TextView text = Toast.makeText(SearchActivity.this, adapter.getItem(i).toString(), Toast.LENGTH_SHORT).show();
                 //startActivity(new Intent(SearchActivity.this, CollegeDataActivity.class));
-                final String selected = (String) collegeList.get(i);
+                //String selected = ((TextView) view.findViewById(R.id.)).getText().toString();
+                String selected = (String) adapter.getItem(i);
                 Intent intent = new Intent(getApplicationContext(), CollegeDataActivity.class);
                 intent.putExtra("collegeName", selected);
                 startActivity(intent);

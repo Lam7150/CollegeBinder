@@ -29,8 +29,8 @@ public class CollegeDataActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.college_data);
 
-        Intent intent = getIntent();
-        String school = intent.getStringExtra(("collegeName"));
+        Intent in = getIntent();
+        String school = in.getStringExtra(("collegeName"));
 
         // General
         final TextView school_name = findViewById(R.id.name);
@@ -80,7 +80,7 @@ public class CollegeDataActivity extends AppCompatActivity{
         APICall.append(baseURL)
                 .append(apiKey)
                 .append("&school.name=")
-                .append(name.replace("", "%20"));
+                .append(name.replace(" ", "%20"));
 
         /** Setting College Name */
         school_name.setText(name);
