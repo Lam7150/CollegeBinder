@@ -22,6 +22,7 @@
                     <TextView
                         android:id="@+id/name"
                         style="@style/CollegeName"
+                        android:paddingTop="10dp"
                         android:layout_width="120dp"
                         android:layout_column="0"
                         android:layout_weight="1"
@@ -40,7 +41,6 @@
                 android:layout_height="wrap_content">
 
                 <TableRow>
-
                     <TextView
                         style="@style/TableHeading"
                         android:layout_width="120dp"
@@ -138,14 +138,9 @@
         </TableRow>
 
         <TableRow>
-
             <TextView
-                style="@style/Cell"
+                style="@style/Whitespace"
                 android:text="" />
-
-            <TextView
-                style="@style/Cell"
-                android:text=""></TextView>
         </TableRow>
 
         <ScrollView android:layout_height="30dp">
@@ -274,16 +269,9 @@
         </TableRow>
 
         <TableRow>
-
             <TextView
-                style="@style/Cell"
+                style="@style/Whitespace"
                 android:text="" />
-
-            <TextView
-                style="@style/Cell"
-                android:text="">
-
-            </TextView>
         </TableRow>
 
         <ScrollView android:layout_height="30dp">
@@ -404,16 +392,9 @@
         </TableRow>
 
         <TableRow>
-
             <TextView
-                style="@style/Cell"
+                style="@style/Whitespace"
                 android:text="" />
-
-            <TextView
-                style="@style/Cell"
-                android:text="">
-
-            </TextView>
         </TableRow>
 
         <ScrollView android:layout_height="30dp">
@@ -564,16 +545,9 @@
         </TableRow>
 
         <TableRow>
-
             <TextView
-                style="@style/Cell"
+                style="@style/Whitespace"
                 android:text="" />
-
-            <TextView
-                style="@style/Cell"
-                android:text="">
-
-            </TextView>
         </TableRow>
 
         <ScrollView android:layout_height="30dp">
@@ -592,7 +566,6 @@
                         android:layout_weight="1"
                         android:text="@string/fun_facts"
                         android:textAlignment="center">
-
                     </TextView>
                 </TableRow>
             </TableLayout>

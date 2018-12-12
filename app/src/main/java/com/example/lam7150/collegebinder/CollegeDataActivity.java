@@ -192,9 +192,10 @@ public class CollegeDataActivity extends AppCompatActivity{
                                  }
 
                                  if (avg_net_priceText.toString().equals("null")) {
-                                     avg_net_priceText = "no data";
+                                     avg_net_price.setText("no data");
+                                 } else {
+                                     avg_net_price.setText("$" + avg_net_priceText.toString());
                                  }
-                                 avg_net_price.setText("$" + avg_net_priceText.toString());
                              } catch (Exception error) {
                                  avg_net_price.setText("no data");
                                  error.printStackTrace();
@@ -335,10 +336,11 @@ public class CollegeDataActivity extends AppCompatActivity{
                             try {
                                 String median_earningsText = earningsInfo.getJSONObject("6_yrs_after_entry")
                                         .get("median").toString();
-                                if (median_earningsText.equals("null")) {
-                                    median_earningsText = "no data";
+                                if (median_earningsText.toString().equals("null")) {
+                                    median_earnings.setText("no data");
+                                } else {
+                                    median_earnings.setText("$" + median_earningsText.toString());
                                 }
-                                median_earnings.setText(median_earningsText);
                             } catch (Exception error) {
                                 median_earnings.setText("no data");
                                 error.printStackTrace();
@@ -349,10 +351,11 @@ public class CollegeDataActivity extends AppCompatActivity{
                                 String in_tuitionText = latestInfo.getJSONObject("cost")
                                         .getJSONObject("tuition")
                                         .get("in_state").toString();
-                                if (in_tuitionText.equals("null")) {
-                                    in_tuitionText = "no data";
+                                if (in_tuitionText.toString().equals("null")) {
+                                    in_tuition.setText("no data");
+                                } else {
+                                    in_tuition.setText("$" + in_tuitionText.toString());
                                 }
-                                in_tuition.setText("$" + in_tuitionText);
                             } catch (Exception error) {
                                 in_tuition.setText("no data");
                                 error.printStackTrace();
@@ -363,10 +366,11 @@ public class CollegeDataActivity extends AppCompatActivity{
                                 String out_state_tuitionText = latestInfo.getJSONObject("cost")
                                         .getJSONObject("tuition")
                                         .get("out_of_state").toString();
-                                if (out_state_tuitionText.equals("null")) {
-                                    out_state_tuitionText = "no data";
+                                if (out_state_tuitionText.toString().equals("null")) {
+                                    out_tuition.setText("no data");
+                                } else {
+                                    out_tuition.setText("$" + out_state_tuitionText.toString());
                                 }
-                                out_tuition.setText("$" + out_state_tuitionText);
                             } catch (Exception error) {
                                 out_tuition.setText("no data");
                                 error.printStackTrace();
@@ -378,10 +382,11 @@ public class CollegeDataActivity extends AppCompatActivity{
                                         .getJSONObject("median_debt")
                                         .getJSONObject("completers")
                                         .get("overall").toString();
-                                if (median_debtText.equals("null")) {
-                                    median_debtText = "no data";
+                                if (median_debtText.toString().equals("null")) {
+                                    debt.setText("no data");
+                                } else {
+                                    debt.setText("$" + median_debtText.toString());
                                 }
-                                debt.setText("$" + median_debtText);
                             } catch (Exception error) {
                                 debt.setText("no data");
                                 error.printStackTrace();

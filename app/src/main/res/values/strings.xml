@@ -17,7 +17,7 @@
     <string name="average_faculty_salary">AVERAGE FACULTY SALARY</string>
     <string name="_16_000">$16,000</string>
     <string name="net_tuition_revenue_per_student">NET TUITION REVENUE PER STUDENT</string>
-    <string name="fun_facts">FUN FACTS</string>
+    <string name="fun_facts">Fun Facts</string>
     <string name="_5_000">5,000</string>
     <string name="number_of_grads">NUMBER OF GRADS</string>
     <string name="_40_000">40,000</string>
@@ -25,13 +25,13 @@
     <string name="_40_">40%</string>
     <string name="percent_first_gen">PERCENT FIRST-GEN</string>
     <string name="_16">16%</string>
-    <string name="percent_latino_hispanic_other">PERCENT LATINO/HISPANIC/OTHER/</string>
+    <string name="percent_latino_hispanic_other">PERCENT LATINO/HISPANIC/OTHER</string>
     <string name="_14">14%</string>
-    <string name="percent_black_african_american">PERCENT BLACK/AFRICAN-AMERICAN</string>
+    <string name="percent_black_african_american">PERCENT BLACK</string>
     <string name="_34">34%</string>
     <string name="percent_asian">PERCENT ASIAN</string>
     <string name="_40">40%</string>
-    <string name="percent_caucasian">PERCENT CAUCASIN</string>
+    <string name="percent_caucasian">PERCENT WHITE</string>
     <string name="_50_">50%</string>
     <string name="percent_female">PERCENT FEMALE</string>
     <string name="_50">50%</string>
