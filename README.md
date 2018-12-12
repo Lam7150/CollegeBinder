@@ -17,6 +17,6 @@ With CollegeBinder, we hope to make the decision of selecting a college less int
 CollegeBinder uses The U.S. Department of Education's API "College Scorecard" to access and display information on colleges throughout the nation.
 
 # Resources used
-CollegeScorecard: https://collegescorecard.ed.gov/data/documentation/ 
+CollegeScorecard: https://collegescorecard.ed.gov/data/documentation/
 MancJ's Material Search Bar: https://github.com/mancj/MaterialSearchBar/  
 Volley: https://developer.android.com/training/volley/ 
