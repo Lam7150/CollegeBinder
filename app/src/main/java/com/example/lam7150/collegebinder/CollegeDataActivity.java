@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import com.mancj.materialsearchbar.MaterialSearchBar;
+
+import java.text.DecimalFormat;
 import java.util.List;
 import java.io.*;
 import java.net.*;
@@ -28,6 +30,7 @@ public class CollegeDataActivity extends AppCompatActivity{
         setContentView(R.layout.college_data);
 
         // General
+        final TextView college_name = findViewById(R.id.name);
         final TextView location = findViewById(R.id.location);
         final TextView degrees_awarded_highest = findViewById(R.id.degrees_awarded_highest);
         final TextView locale = findViewById(R.id.locale);
@@ -62,9 +65,8 @@ public class CollegeDataActivity extends AppCompatActivity{
         final TextView percent_grad = findViewById(R.id.percent_grad);
 
         // Fun Facts
-        TextView net_revenue = findViewById(R.id.net_revenue);
-        TextView average_salary = findViewById(R.id.average_salary);
-
+        final TextView net_revenue = findViewById(R.id.net_revenue);
+        final TextView average_salary = findViewById(R.id.average_salary);
 
         /** Building API Call */
         StringBuilder APICall = new StringBuilder(200);
@@ -76,6 +78,8 @@ public class CollegeDataActivity extends AppCompatActivity{
                 .append("&school.name=")
                 .append(name.replace(" ", "%20"));
 
+        /** Setting College Name */
+        college_name.setText(name);
 
         // Instantiate a request queue
         RequestQueue queue = Volley.newRequestQueue(this);
@@ -137,10 +141,10 @@ public class CollegeDataActivity extends AppCompatActivity{
                              locale.setText(localeText);
 
                              /** Number of students */
-                             String number_of_studentsText  = String.valueOf((Integer) studentInfo.get("grad_students")
+                             Integer number_of_studentsText  = (Integer) studentInfo.get("grad_students")
                              + (Integer) studentInfo.get("undergrads_with_pell_grant_or_federal_student_loan")
-                             + (Integer) studentInfo.get("undergrads_non_degree_seeking"));
-                             number_of_students.setText(number_of_studentsText);
+                             + (Integer) studentInfo.get("undergrads_non_degree_seeking");
+                             number_of_students.setText(String.valueOf(number_of_studentsText));
 
                              /** Average net price */
                              Object avg_net_priceText = latestInfo.getJSONObject("cost")
@@ -229,12 +233,87 @@ public class CollegeDataActivity extends AppCompatActivity{
                                     .get("out_of_state").toString();
                             out_tuition.setText(out_state_tuitionText);
 
+                            /** Median Debt */
+                            String median_debtText = latestInfo.getJSONObject("aid")
+                                    .getJSONObject("median_debt")
+                                    .getJSONObject("completers")
+                                    .get("overall").toString();
+                            debt.setText(median_debtText);
 
-                            /**  */
-                            /**  */
-                            /**  */
-                            /**  */
-                            /**  */
+
+                            /** Financial Aid Rate */
+                            DecimalFormat df = new DecimalFormat("#.##");
+                            Double loanRate = (Double) latestInfo.getJSONObject("aid").get("federal_loan_rate") * 100;
+                            String fin_aid_percentText = df.format(loanRate) + "%";
+                            fin_aid_percent.setText(fin_aid_percentText);
+
+                            /** Percent Female */
+                            Double female = (Double) studentInfo.getJSONObject("demographics")
+                                    .get("female_share") * 100;
+                            String percent_femaleText = df.format(female) + "%";
+                            percent_female.setText(percent_femaleText);
+
+                            /** Percent Male */
+                            String percent_maleText = df.format(100 - female) + "%";
+                            percent_male.setText(percent_maleText);
+
+                            /** Percent White */
+                            Double white = (Double) studentInfo
+                                    .getJSONObject("demographics")
+                                    .getJSONObject("race_ethnicity")
+                                    .get("white") * 100;
+                            String percent_whiteText = df.format(white) + "%";
+                            percent_white.setText(percent_whiteText);
+
+                            /** Percent Black */
+                            Double black = (Double) studentInfo
+                                    .getJSONObject("demographics")
+                                    .getJSONObject("race_ethnicity")
+                                    .get("black") * 100;
+                            String percent_blackText = df.format(black) + "%";
+                            percent_black.setText(percent_blackText);
+
+                            /** Percent Asian */
+                            Double asian = (Double) studentInfo
+                                    .getJSONObject("demographics")
+                                    .getJSONObject("race_ethnicity")
+                                    .get("asian") * 100;
+                            String percent_asianText = df.format(asian) + "%";
+                            percent_asian.setText(percent_asianText);
+
+                            /** Percent Other */
+                            String percent_OtherText = df.format(100 - white - asian - black) + "%";
+                            percent_other.setText(percent_OtherText);
+
+                            /** Percent first-gen */
+                            Double first_gen = (Double) studentInfo
+                                    .get("share_firstgeneration") * 100;
+                            String percent_first_genText = df.format(first_gen) + "%";
+                            percent_first_gen.setText(percent_first_genText);
+
+                            /** Percent undergrad */
+                            double undergrad  = (double) ((Integer) studentInfo.get("undergrads_non_degree_seeking")
+                                    + (Integer) studentInfo.get("undergrads_with_pell_grant_or_federal_student_loan"))
+                                    / number_of_studentsText;
+                            undergrad *= 100;
+                            String percent_undergradText = df.format(undergrad) + "%";
+                            percent_undergrad.setText(percent_undergradText);
+
+                            /** Percent undergrad */
+                            double grad  = (double) (Integer) studentInfo.get("grad_students")
+                                    / number_of_studentsText;
+                            grad *= 100;
+                            String percent_gradText = df.format(grad) + "%";
+                            percent_grad.setText(percent_gradText);
+
+                            /** Net revenue per student */
+                            String net_revenueText = "$" + schoolInfo.get("tuition_revenue_per_fte").toString();
+                            net_revenue.setText(net_revenueText);
+
+                            /** Average salary faculty */
+                            String average_salaryText = "$" + schoolInfo.get("faculty_salary").toString();
+                            average_salary.setText(average_salaryText);
+
                         } catch (Exception e) {
                             e.printStackTrace();
                         }

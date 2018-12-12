@@ -628,12 +628,15 @@
             android:background="@android:color/darker_gray" />
 
         <TableRow>
+
             <TextView
                 style="@style/Cell"
                 android:text="@string/net_tuition_revenue_per_student" />
+
             <TextView
                 style="@style/Divider"
                 android:text="" />
+
             <TextView
                 android:id="@+id/net_tuition_rev"
                 style="@style/Cell"
