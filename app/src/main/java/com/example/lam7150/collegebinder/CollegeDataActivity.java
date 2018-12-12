@@ -29,8 +29,11 @@ public class CollegeDataActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.college_data);
 
+        Intent intent = getIntent();
+        String school = intent.getStringExtra(("collegeName"));
+
         // General
-        final TextView college_name = findViewById(R.id.name);
+        final TextView school_name = findViewById(R.id.name);
         final TextView location = findViewById(R.id.location);
         final TextView degrees_awarded_highest = findViewById(R.id.degrees_awarded_highest);
         final TextView locale = findViewById(R.id.locale);
@@ -70,16 +73,17 @@ public class CollegeDataActivity extends AppCompatActivity{
 
         /** Building API Call */
         StringBuilder APICall = new StringBuilder(200);
-        String name = "University of Illinois at Urbana-Champaign";
+        String name = school;
+        school_name.setText(name);
         String baseURL = "https://api.data.gov/ed/collegescorecard/v1/schools.json?api_key=";
         String apiKey = "XtwjKaILRJ3uITtYwTOHnlUeTHl3GEsRMfa73uFB";
         APICall.append(baseURL)
                 .append(apiKey)
                 .append("&school.name=")
-                .append(name.replace(" ", "%20"));
+                .append(name.replace("", "%20"));
 
         /** Setting College Name */
-        college_name.setText(name);
+        school_name.setText(name);
 
         // Instantiate a request queue
         RequestQueue queue = Volley.newRequestQueue(this);
