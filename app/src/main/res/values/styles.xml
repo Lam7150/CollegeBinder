@@ -8,12 +8,13 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
     <style name="CollegeName">
+        <item name="android:textColor">#000000</item>
         <item name="android:textStyle"> bold </item>
     </style>
 
     <style name="TableHeading" parent="CollegeName">
         <item name="android:textSize"> 20sp </item>
-        <item name="android:background">#39E58F</item>
+        <item name="android:background">#dbebcd</item>
     </style>
 
     <style name="Divider">
@@ -25,12 +26,13 @@
     </style>
 
     <style name="Cell">
-        <item name="android:fontFamily">@font/cocogoose</item>
+        <item name="android:fontFamily">@font/arialbold </item>
         <item name="android:capitalize">characters</item>
         <item name="android:paddingLeft">5dp</item>
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_column">1</item>
         <item name="android:layout_weight">0.499</item>
+        <item name="android:textColor">#000000</item>
     </style>
 
 </resources>

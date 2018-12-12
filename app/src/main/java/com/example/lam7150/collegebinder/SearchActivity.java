@@ -2,6 +2,7 @@ package com.example.lam7150.collegebinder;
 
 import android.app.SearchManager;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -16,6 +17,7 @@ import android.widget.Toolbar;
 import com.mancj.materialsearchbar.MaterialSearchBar;
 
 import java.io.InputStream;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,13 +40,16 @@ public class SearchActivity extends AppCompatActivity {
         /**Implementation of CSVFile.java to get array list of our colleges. */
         InputStream inputStream = getResources().openRawResource(R.raw.colleges);
         CSVFile csvFile = new CSVFile(inputStream);
-        List collegeList = csvFile.read();
+        final List collegeList = csvFile.read();
 
         /** Adapter, allows us to carry information (in this case our collegeList)
          * and let it be useful and accessible to a layout (our activity_search.xml and content_main.xml)
          */
         final ArrayAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, collegeList);
         lv.setAdapter(adapter);
+
+
+
 
         /** search bar text change listener, narrows down our collegeList based on the search that is
          * being made in real time, since there are around 700 total string to consider. */
@@ -73,7 +78,9 @@ public class SearchActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 //Toast.makeText(SearchActivity.this, adapter.getItem(i).toString(), Toast.LENGTH_SHORT).show();
                 //startActivity(new Intent(SearchActivity.this, CollegeDataActivity.class));
-                Intent intent = new Intent(SearchActivity.this, CollegeDataActivity.class);
+                final String selected = (String) collegeList.get(i);
+                Intent intent = new Intent(getApplicationContext(), CollegeDataActivity.class);
+                intent.putExtra("collegeName", selected);
                 startActivity(intent);
             }
         });
