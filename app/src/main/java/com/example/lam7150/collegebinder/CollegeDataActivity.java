@@ -64,8 +64,6 @@ public class CollegeDataActivity extends AppCompatActivity{
         final TextView percent_black = findViewById(R.id.percent_black);
         final TextView percent_other = findViewById(R.id.percent_other);
         final TextView percent_first_gen = findViewById(R.id.percent_first_gen);
-        final TextView percent_undergrad = findViewById(R.id.percent_undergrad);
-        final TextView percent_grad = findViewById(R.id.percent_grad);
 
         // Fun Facts
         final TextView net_revenue = findViewById(R.id.net_revenue);
@@ -82,8 +80,8 @@ public class CollegeDataActivity extends AppCompatActivity{
                 .append("&school.name=")
                 .append(name.replace(" ", "%20"));
 
-        /** Setting College Name */
-        school_name.setText(name);
+        /** Decimal Format */
+        final DecimalFormat df = new DecimalFormat("#.##");
 
         // Instantiate a request queue
         RequestQueue queue = Volley.newRequestQueue(this);
@@ -109,214 +107,438 @@ public class CollegeDataActivity extends AppCompatActivity{
                             JSONObject SATInfo = admissionsInfo.getJSONObject("sat_scores");
                             JSONObject ACTInfo = admissionsInfo.getJSONObject("act_scores");
 
-                             /** Location */
-                             String locationText = schoolInfo.get("city").toString() + ", "
-                             + schoolInfo.get("state").toString();
-                             location.setText(locationText);
+                            /** Location */
+                            try {
+                                String locationText = schoolInfo.get("city").toString() + ", "
+                                        + schoolInfo.get("state").toString();
+                                if (locationText.equals("null")) {
+                                    locationText = "no data";
+                                }
+                                location.setText(locationText);
+                            } catch (Exception error) {
+                                location.setText("no data");
+                                error.printStackTrace();
+                            }
 
                              /** Highest Degree Awarded */
-                             String degrees_awarded_highestText = schoolInfo.getJSONObject("degrees_awarded")
-                             .get("highest").toString();
-                             switch (degrees_awarded_highestText) {
-                             case "0": degrees_awarded_highestText = "No degree"; break;
-                             case "1": degrees_awarded_highestText = "Certificate"; break;
-                             case "2": degrees_awarded_highestText = "Associate's"; break;
-                             case "3": degrees_awarded_highestText = "Bachelor's"; break;
-                             case "4": degrees_awarded_highestText = "Graduate"; break;
+                             try {
+                                 String degrees_awarded_highestText = schoolInfo.getJSONObject("degrees_awarded")
+                                         .get("highest").toString();
+                                 switch (degrees_awarded_highestText) {
+                                     case "0": degrees_awarded_highestText = "No degree"; break;
+                                     case "1": degrees_awarded_highestText = "Certificate"; break;
+                                     case "2": degrees_awarded_highestText = "Associate's"; break;
+                                     case "3": degrees_awarded_highestText = "Bachelor's"; break;
+                                     case "4": degrees_awarded_highestText = "Graduate"; break;
+                                 }
+                                 if (degrees_awarded_highestText.equals("null")) {
+                                     degrees_awarded_highestText = "no data";
+                                 }
+                                 degrees_awarded_highest.setText(degrees_awarded_highestText);
+                             } catch (Exception error) {
+                                 degrees_awarded_highest.setText("no data");
+                                 error.printStackTrace();
                              }
-                            degrees_awarded_highest.setText(degrees_awarded_highestText);
 
                              /** Locale */
-                             String localeText = schoolInfo.get("locale").toString();
-                             switch (localeText) {
-                             case "11": localeText = "Large City"; break;
-                             case "12": localeText = "Midsize City"; break;
-                             case "13": localeText = "Small City"; break;
-                             case "21": localeText = "Large Suburbs"; break;
-                             case "22": localeText = "Midsize Suburbs"; break;
-                             case "23": localeText = "Small Suburbs"; break;
-                             case "31": localeText = "Fringe Town"; break;
-                             case "32": localeText = "Distant Town"; break;
-                             case "33": localeText = "Remote Town"; break;
-                             case "41": localeText = "Rural Fringe"; break;
-                             case "42": localeText = "Rural Distant"; break;
-                             case "43": localeText = "Rural Remote"; break;
+                             try {
+                                 String localeText = schoolInfo.get("locale").toString();
+                                 switch (localeText) {
+                                     case "11": localeText = "Large City"; break;
+                                     case "12": localeText = "Midsize City"; break;
+                                     case "13": localeText = "Small City"; break;
+                                     case "21": localeText = "Large Suburbs"; break;
+                                     case "22": localeText = "Midsize Suburbs"; break;
+                                     case "23": localeText = "Small Suburbs"; break;
+                                     case "31": localeText = "Fringe Town"; break;
+                                     case "32": localeText = "Distant Town"; break;
+                                     case "33": localeText = "Remote Town"; break;
+                                     case "41": localeText = "Rural Fringe"; break;
+                                     case "42": localeText = "Rural Distant"; break;
+                                     case "43": localeText = "Rural Remote"; break;
+                                 }
+                                 if (localeText.equals("null")) {
+                                     localeText = "no data";
+                                 }
+                                 locale.setText(localeText);
+                             } catch (Exception error) {
+                                 locale.setText("no data");
+                                 error.printStackTrace();
                              }
-                             locale.setText(localeText);
 
                              /** Number of students */
-                             Integer number_of_studentsText  = (Integer) studentInfo.get("grad_students")
-                             + (Integer) studentInfo.get("undergrads_with_pell_grant_or_federal_student_loan")
-                             + (Integer) studentInfo.get("undergrads_non_degree_seeking");
-                             number_of_students.setText(String.valueOf(number_of_studentsText));
-
-                             /** Average net price */
-                             Object avg_net_priceText = latestInfo.getJSONObject("cost")
-                             .getJSONObject("avg_net_price")
-                             .get("public");
-
-                             if (avg_net_priceText == null) {
-                             avg_net_priceText = latestInfo.getJSONObject("cost")
-                             .getJSONObject("avg_net_price")
-                             .get("private");
+                             try {
+                                 String number_of_studentsText = studentInfo.getJSONObject("enrollment")
+                                         .get("all").toString();
+                                 if (number_of_studentsText.equals("null")) {
+                                     number_of_studentsText = "no data";
+                                 }
+                                 number_of_students.setText(number_of_studentsText);
+                             } catch (Exception error) {
+                                 number_of_students.setText("no data");
+                                 error.printStackTrace();
                              }
 
-                             avg_net_priceText = (Integer) avg_net_priceText;
-                             avg_net_price.setText(avg_net_priceText.toString());
+                             /** Average net price */
+                             try {
+                                 Object avg_net_priceText = latestInfo.getJSONObject("cost")
+                                         .getJSONObject("avg_net_price")
+                                         .get("public");
+
+                                 if (avg_net_priceText == null) {
+                                     avg_net_priceText = latestInfo.getJSONObject("cost")
+                                             .getJSONObject("avg_net_price")
+                                             .get("private");
+                                 }
+
+                                 if (avg_net_priceText.toString().equals("null")) {
+                                     avg_net_priceText = "no data";
+                                 }
+                                 avg_net_price.setText("$" + avg_net_priceText.toString());
+                             } catch (Exception error) {
+                                 avg_net_price.setText("no data");
+                                 error.printStackTrace();
+                             }
 
                              /** Admission rate */
-                             Double admission_rate_overallInt = (Double) admissionsInfo
-                             .getJSONObject("admission_rate")
-                             .get("overall") * 100;
-                             String admission_rate_overallText = admission_rate_overallInt.toString() + "%";
-                             admission_rate_overall.setText(admission_rate_overallText);
-                             admission_rate_overall2.setText(admission_rate_overallText);
+                             try {
+                                 Double admission_rate_overallInt = (Double) admissionsInfo
+                                         .getJSONObject("admission_rate")
+                                         .get("overall") * 100;
+                                 String admission_rate_overallText = admission_rate_overallInt.toString() + "%";
+                                 if (admission_rate_overallText.equals("null")) {
+                                     admission_rate_overallText = "no data";
+                                 }
+                                 admission_rate_overall.setText(admission_rate_overallText);
+                                 admission_rate_overall2.setText(admission_rate_overallText);
+                             } catch (Exception error) {
+                                 admission_rate_overall.setText("no data");
+                                 admission_rate_overall2.setText("no data");
+                                 error.printStackTrace();
+                             }
+
 
                              /** SAT Math */
-                             Integer sat_math25 = (Integer) SATInfo
-                             .getJSONObject("25th_percentile")
-                             .get("math");
+                             try {
+                                 Integer sat_math25 = (Integer) SATInfo
+                                         .getJSONObject("25th_percentile")
+                                         .get("math");
 
-                             Integer sat_math75 = (Integer) SATInfo
-                             .getJSONObject("75th_percentile")
-                             .get("math");
+                                 Integer sat_math75 = (Integer) SATInfo
+                                         .getJSONObject("75th_percentile")
+                                         .get("math");
 
-                             String sat_mathText = sat_math25.toString() + " - " + sat_math75.toString();
-                             sat_math.setText(sat_mathText);
+                                 String sat_mathText = sat_math25.toString() + " - " + sat_math75.toString();
+                                 if (sat_mathText.equals("null")) {
+                                     sat_mathText = "no data";
+                                 }
+                                 sat_math.setText(sat_mathText);
+                             } catch (Exception error) {
+                                 sat_math.setText("no data");
+                                 error.printStackTrace();
+                             }
+
 
                              /** SAT Reading */
-                             Integer sat_reading25 = (Integer) SATInfo
-                             .getJSONObject("25th_percentile")
-                             .get("critical_reading");
+                             try {
+                                 Integer sat_reading25 = (Integer) SATInfo
+                                         .getJSONObject("25th_percentile")
+                                         .get("critical_reading");
 
-                             Integer sat_reading75 = (Integer) SATInfo
-                             .getJSONObject("75th_percentile")
-                             .get("critical_reading");
+                                 Integer sat_reading75 = (Integer) SATInfo
+                                         .getJSONObject("75th_percentile")
+                                         .get("critical_reading");
 
-                             String sat_readingText = sat_reading25.toString() + " - " + sat_reading75.toString();
-                             sat_reading.setText(sat_readingText);
+                                 String sat_readingText = sat_reading25.toString() + " - " + sat_reading75.toString();
+                                 if (sat_readingText.equals("null")) {
+                                     sat_readingText = "no data";
+                                 }
+                                 sat_reading.setText(sat_readingText);
+                             } catch (Exception error) {
+                                 sat_reading.setText("no data");
+                                 error.printStackTrace();
+                             }
 
                              /** SAT writing */
-                             Integer sat_writing25 = (Integer) SATInfo
-                             .getJSONObject("25th_percentile")
-                             .get("writing");
+                            try {
+                                Integer sat_writing25 = (Integer) SATInfo
+                                        .getJSONObject("25th_percentile")
+                                        .get("writing");
 
-                             Integer sat_writing75 = (Integer) SATInfo
-                             .getJSONObject("75th_percentile")
-                             .get("writing");
+                                Integer sat_writing75 = (Integer) SATInfo
+                                        .getJSONObject("75th_percentile")
+                                        .get("writing");
 
-                             String sat_writingText = sat_writing25.toString() + " - " + sat_writing75.toString();
-                             sat_writing.setText(sat_writingText);
+                                String sat_writingText = sat_writing25.toString() + " - " + sat_writing75.toString();
+                                if (sat_writingText.equals("null")) {
+                                    sat_writingText = "no data";
+                                }
+                                sat_writing.setText(sat_writingText);
+                            } catch (Exception error) {
+                                sat_writing.setText("no data");
+                                error.printStackTrace();
+                            }
 
                              /** SAT Overall */
-                             Integer sat_overall25 = sat_math25 + sat_reading25 + sat_writing25;
-                             Integer sat_overall75 = sat_math75 + sat_reading75 + sat_writing75;
-                             String sat_overallText = sat_overall25.toString() + " - " + sat_overall75.toString();
-                             sat_overall.setText(sat_overallText);
+                            try {
+                                Integer sat_math25 = (Integer) SATInfo
+                                        .getJSONObject("25th_percentile")
+                                        .get("math");
 
-                             /** ACT Overall */
-                             Integer act_overall25 = (Integer) ACTInfo.getJSONObject("25th_percentile").get("cumulative");
-                             Integer act_overall75 = (Integer) ACTInfo.getJSONObject("75th_percentile").get("cumulative");
-                             String act_overallText = act_overall25.toString() + " - " + act_overall75.toString();
-                             act_composite.setText(act_overallText);
+                                Integer sat_math75 = (Integer) SATInfo
+                                        .getJSONObject("75th_percentile")
+                                        .get("math");
+
+                                Integer sat_reading25 = (Integer) SATInfo
+                                        .getJSONObject("25th_percentile")
+                                        .get("critical_reading");
+
+                                Integer sat_reading75 = (Integer) SATInfo
+                                        .getJSONObject("75th_percentile")
+                                        .get("critical_reading");
+
+                                Integer sat_writing25 = (Integer) SATInfo
+                                        .getJSONObject("25th_percentile")
+                                        .get("writing");
+
+                                Integer sat_writing75 = (Integer) SATInfo
+                                        .getJSONObject("75th_percentile")
+                                        .get("writing");
+
+                                Integer sat_overall25 = sat_math25 + sat_reading25 + sat_writing25;
+                                Integer sat_overall75 = sat_math75 + sat_reading75 + sat_writing75;
+                                String sat_overallText = sat_overall25.toString() + " - " + sat_overall75.toString();
+                                if (sat_overallText.equals("null")) {
+                                    sat_overallText = "no data";
+                                }
+                                sat_overall.setText(sat_overallText);
+                            } catch (Exception error) {
+                                sat_overall.setText("no data");
+                                error.printStackTrace();
+                            }
+
+                            /** ACT Overall */
+                            try {
+                                Integer act_overall25 = (Integer) ACTInfo.getJSONObject("25th_percentile").get("cumulative");
+                                Integer act_overall75 = (Integer) ACTInfo.getJSONObject("75th_percentile").get("cumulative");
+                                String act_overallText = act_overall25.toString() + " - " + act_overall75.toString();
+                                if (act_overallText.equals("null")) {
+                                    act_overallText = "no data";
+                                }
+                                act_composite.setText(act_overallText);
+                            } catch (Exception error) {
+                                act_composite.setText("no data");
+                                error.printStackTrace();
+                            }
 
                             /** Median Earnings */
-                            String median_earningsText = earningsInfo.getJSONObject("6_yrs_after_entry")
-                                    .get("median").toString();
-                            median_earnings.setText(median_earningsText);
+                            try {
+                                String median_earningsText = earningsInfo.getJSONObject("6_yrs_after_entry")
+                                        .get("median").toString();
+                                if (median_earningsText.equals("null")) {
+                                    median_earningsText = "no data";
+                                }
+                                median_earnings.setText(median_earningsText);
+                            } catch (Exception error) {
+                                median_earnings.setText("no data");
+                                error.printStackTrace();
+                            }
 
                             /** In-state tuition */
-                            String in_tuitionText = latestInfo.getJSONObject("cost")
-                                    .getJSONObject("tuition")
-                                    .get("in_state").toString();
-                            in_tuition.setText(in_tuitionText);
+                            try {
+                                String in_tuitionText = latestInfo.getJSONObject("cost")
+                                        .getJSONObject("tuition")
+                                        .get("in_state").toString();
+                                if (in_tuitionText.equals("null")) {
+                                    in_tuitionText = "no data";
+                                }
+                                in_tuition.setText("$" + in_tuitionText);
+                            } catch (Exception error) {
+                                in_tuition.setText("no data");
+                                error.printStackTrace();
+                            }
 
                             /** Out-of-state tuition */
-                            String out_state_tuitionText = latestInfo.getJSONObject("cost")
-                                    .getJSONObject("tuition")
-                                    .get("out_of_state").toString();
-                            out_tuition.setText(out_state_tuitionText);
+                            try {
+                                String out_state_tuitionText = latestInfo.getJSONObject("cost")
+                                        .getJSONObject("tuition")
+                                        .get("out_of_state").toString();
+                                if (out_state_tuitionText.equals("null")) {
+                                    out_state_tuitionText = "no data";
+                                }
+                                out_tuition.setText("$" + out_state_tuitionText);
+                            } catch (Exception error) {
+                                out_tuition.setText("no data");
+                                error.printStackTrace();
+                            }
 
                             /** Median Debt */
-                            String median_debtText = latestInfo.getJSONObject("aid")
-                                    .getJSONObject("median_debt")
-                                    .getJSONObject("completers")
-                                    .get("overall").toString();
-                            debt.setText(median_debtText);
+                            try {
+                                String median_debtText = latestInfo.getJSONObject("aid")
+                                        .getJSONObject("median_debt")
+                                        .getJSONObject("completers")
+                                        .get("overall").toString();
+                                if (median_debtText.equals("null")) {
+                                    median_debtText = "no data";
+                                }
+                                debt.setText("$" + median_debtText);
+                            } catch (Exception error) {
+                                debt.setText("no data");
+                                error.printStackTrace();
+                            }
 
 
                             /** Financial Aid Rate */
-                            DecimalFormat df = new DecimalFormat("#.##");
-                            Double loanRate = (Double) latestInfo.getJSONObject("aid").get("federal_loan_rate") * 100;
-                            String fin_aid_percentText = df.format(loanRate) + "%";
-                            fin_aid_percent.setText(fin_aid_percentText);
+                            try {
+                                Double loanRate = (Double) latestInfo.getJSONObject("aid").get("federal_loan_rate") * 100;
+                                String fin_aid_percentText = df.format(loanRate) + "%";
+                                if (fin_aid_percentText.equals("null")) {
+                                    fin_aid_percentText = "no data";
+                                }
+                                fin_aid_percent.setText(fin_aid_percentText);
+                            } catch (Exception error) {
+                                fin_aid_percent.setText("no data");
+                                error.printStackTrace();
+                            }
 
                             /** Percent Female */
-                            Double female = (Double) studentInfo.getJSONObject("demographics")
-                                    .get("female_share") * 100;
-                            String percent_femaleText = df.format(female) + "%";
-                            percent_female.setText(percent_femaleText);
+                            try {
+                                Double female = (Double) studentInfo.getJSONObject("demographics")
+                                        .get("female_share") * 100;
+                                String percent_femaleText = df.format(female) + "%";
+                                percent_femaleText.length();
+                                percent_female.setText(percent_femaleText);
+                            } catch (Exception error) {
+                                percent_female.setText("no data");
+                                error.printStackTrace();
+                            }
 
                             /** Percent Male */
-                            String percent_maleText = df.format(100 - female) + "%";
-                            percent_male.setText(percent_maleText);
+                            try {
+                                Double female = (Double) studentInfo.getJSONObject("demographics")
+                                        .get("female_share") * 100;
+                                String percent_maleText = df.format(100 - female) + "%";
+                                if (percent_maleText.equals("null")) {
+                                    percent_maleText = "no data";
+                                }
+                                percent_male.setText(percent_maleText);
+                            } catch (Exception error) {
+                                percent_male.setText("no data");
+                                error.printStackTrace();
+                            }
 
                             /** Percent White */
-                            Double white = (Double) studentInfo
-                                    .getJSONObject("demographics")
-                                    .getJSONObject("race_ethnicity")
-                                    .get("white") * 100;
-                            String percent_whiteText = df.format(white) + "%";
-                            percent_white.setText(percent_whiteText);
+                            try {
+                                Double white = (Double) studentInfo
+                                        .getJSONObject("demographics")
+                                        .getJSONObject("race_ethnicity")
+                                        .get("white") * 100;
+                                String percent_whiteText = df.format(white) + "%";
+                                if (percent_whiteText.equals("null")) {
+                                    percent_whiteText = "no data";
+                                }
+                                percent_white.setText(percent_whiteText);
+                            } catch (Exception error) {
+                                percent_white.setText("no data");
+                                error.printStackTrace();
+                            }
 
                             /** Percent Black */
-                            Double black = (Double) studentInfo
-                                    .getJSONObject("demographics")
-                                    .getJSONObject("race_ethnicity")
-                                    .get("black") * 100;
-                            String percent_blackText = df.format(black) + "%";
-                            percent_black.setText(percent_blackText);
+                            try {
+                                Double black = (Double) studentInfo
+                                        .getJSONObject("demographics")
+                                        .getJSONObject("race_ethnicity")
+                                        .get("black") * 100;
+                                String percent_blackText = df.format(black) + "%";
+                                if (percent_blackText.equals("null")) {
+                                    percent_blackText = "no data";
+                                }
+                                percent_black.setText(percent_blackText);
+                            } catch (Exception error) {
+                                percent_black.setText("no data");
+                                error.printStackTrace();
+                            }
 
                             /** Percent Asian */
-                            Double asian = (Double) studentInfo
-                                    .getJSONObject("demographics")
-                                    .getJSONObject("race_ethnicity")
-                                    .get("asian") * 100;
-                            String percent_asianText = df.format(asian) + "%";
-                            percent_asian.setText(percent_asianText);
+                            try {
+                                Double asian = (Double) studentInfo
+                                        .getJSONObject("demographics")
+                                        .getJSONObject("race_ethnicity")
+                                        .get("asian") * 100;
+                                String percent_asianText = df.format(asian) + "%";
+                                if (percent_asianText.equals("null")) {
+                                    percent_asianText = "no data";
+                                }
+                                percent_asian.setText(percent_asianText);
+                            } catch (Exception error) {
+                                percent_asian.setText("no data");
+                                error.printStackTrace();
+                            }
 
                             /** Percent Other */
-                            String percent_OtherText = df.format(100 - white - asian - black) + "%";
-                            percent_other.setText(percent_OtherText);
+                            try {
+                                Double white = (Double) studentInfo
+                                        .getJSONObject("demographics")
+                                        .getJSONObject("race_ethnicity")
+                                        .get("white") * 100;
+
+                                Double black = (Double) studentInfo
+                                        .getJSONObject("demographics")
+                                        .getJSONObject("race_ethnicity")
+                                        .get("black") * 100;
+
+                                Double asian = (Double) studentInfo
+                                        .getJSONObject("demographics")
+                                        .getJSONObject("race_ethnicity")
+                                        .get("asian") * 100;
+
+                                String percent_OtherText = df.format(100 - white - asian - black) + "%";
+                                if (percent_OtherText.equals("null")) {
+                                    percent_OtherText = "no data";
+                                }
+                                percent_other.setText(percent_OtherText);
+                            } catch (Exception error) {
+                                percent_other.setText("no data");
+                                error.printStackTrace();
+                            }
 
                             /** Percent first-gen */
-                            Double first_gen = (Double) studentInfo
-                                    .get("share_firstgeneration") * 100;
-                            String percent_first_genText = df.format(first_gen) + "%";
-                            percent_first_gen.setText(percent_first_genText);
-
-                            /** Percent undergrad */
-                            double undergrad  = (double) ((Integer) studentInfo.get("undergrads_non_degree_seeking")
-                                    + (Integer) studentInfo.get("undergrads_with_pell_grant_or_federal_student_loan"))
-                                    / number_of_studentsText;
-                            undergrad *= 100;
-                            String percent_undergradText = df.format(undergrad) + "%";
-                            percent_undergrad.setText(percent_undergradText);
-
-                            /** Percent undergrad */
-                            double grad  = (double) (Integer) studentInfo.get("grad_students")
-                                    / number_of_studentsText;
-                            grad *= 100;
-                            String percent_gradText = df.format(grad) + "%";
-                            percent_grad.setText(percent_gradText);
+                            try {
+                                Double first_gen = (Double) studentInfo
+                                        .get("share_firstgeneration") * 100;
+                                String percent_first_genText = df.format(first_gen) + "%";
+                                if (percent_first_genText.equals("null")) {
+                                    percent_first_genText = "no data";
+                                }
+                                percent_first_gen.setText(percent_first_genText);
+                            } catch (Exception error) {
+                                percent_first_gen.setText("no data");
+                                error.printStackTrace();
+                            }
 
                             /** Net revenue per student */
-                            String net_revenueText = "$" + schoolInfo.get("tuition_revenue_per_fte").toString();
-                            net_revenue.setText(net_revenueText);
+                            try {
+                                String net_revenueText = "$" + schoolInfo.get("tuition_revenue_per_fte").toString();
+                                if (net_revenueText.equals("$null")) {
+                                    net_revenueText = "no data";
+                                }
+                                net_revenue.setText(net_revenueText);
+                            } catch (Exception error) {
+                                net_revenue.setText("no data");
+                                error.printStackTrace();
+                            }
 
                             /** Average salary faculty */
-                            String average_salaryText = "$" + schoolInfo.get("faculty_salary").toString();
-                            average_salary.setText(average_salaryText);
+                            try {
+                                String average_salaryText = "$" + schoolInfo.get("faculty_salary").toString();
+                                if (average_salaryText.equals("$null")) {
+                                    average_salaryText = "no data";
+                                }
+                                average_salary.setText(average_salaryText);
+                            } catch (Exception error) {
+                                average_salary.setText("no data");
+                                error.printStackTrace();
+                            }
 
                         } catch (Exception e) {
                             e.printStackTrace();
