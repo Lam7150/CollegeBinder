@@ -18,5 +18,6 @@ CollegeBinder uses The U.S. Department of Education's API "College Scorecard" to
 
 # Resources used
 CollegeScorecard: https://collegescorecard.ed.gov/data/documentation/
+
 MancJ's Material Search Bar: https://github.com/mancj/MaterialSearchBar/  
 Volley: https://developer.android.com/training/volley/ 
