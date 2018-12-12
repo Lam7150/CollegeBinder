@@ -60,7 +60,7 @@
         <TableRow>
             <TextView style="@style/Cell" android:text="@string/highest_education" />
             <TextView style="@style/Divider" android:text="" />
-            <TextView style="@style/Cell" android:id="@+id/degrees_awarded.highest" />
+            <TextView style="@style/Cell" android:id="@+id/degrees_awarded_highest" />
         </TableRow>
         <TableRow>
             <TextView style="@style/Cell" android:text="@string/campus" />
@@ -123,32 +123,27 @@
         <TableRow>
             <TextView style="@style/Cell" android:text="@string/sat_overall_25_75th_percentile" />
             <TextView style="@style/Divider" android:text="" />
-            <TextView style="@style/Cell" android:text="@string/_1310_1480">
-            </TextView>
+            <TextView style="@style/Cell" android:id="@+id/sat_overall" />
         </TableRow>
         <TableRow>
             <TextView style="@style/Cell" android:text="@string/sat_math" />
             <TextView style="@style/Divider" android:text="" />
-            <TextView style="@style/Cell" android:text="@string/_730_790">
-            </TextView>
+            <TextView style="@style/Cell" android:id="@+id/sat_math" />
         </TableRow>
         <TableRow>
             <TextView style="@style/Cell" android:text="@string/sat_reading" />
             <TextView style="@style/Divider" android:text="" />
-            <TextView style="@style/Cell" android:text="@string/_30_36">
-            </TextView>
+            <TextView style="@style/Cell" android:id="@+id/sat_reading" />
         </TableRow>
         <TableRow>
             <TextView style="@style/Cell" android:text="@string/sat_writing" />
             <TextView style="@style/Divider" android:text="" />
-            <TextView style="@style/Cell" android:text="@string/_32_36">
-            </TextView>
+            <TextView style="@style/Cell" android:id="@+id/sat_writing" />
         </TableRow>
         <TableRow>
             <TextView style="@style/Cell" android:text="@string/act_composite" />
             <TextView style="@style/Divider" android:text="" />
-            <TextView style="@style/Cell" android:text="@string/_27_33">
-            </TextView>
+            <TextView style="@style/Cell" android:id="@+id/act_composite" />
         </TableRow>
         <TableRow>
             <TextView style="@style/Cell" android:text="" />
@@ -181,32 +176,27 @@
         <TableRow>
             <TextView style="@style/Cell" android:text="@string/median_earnings_6_years_after_grad" />
             <TextView style="@style/Divider" android:text="" />
-            <TextView style="@style/Cell" android:text="@string/_67_000">
-            </TextView>
+            <TextView style="@style/Cell" android:id="@+id/median_earnings" />
         </TableRow>
         <TableRow>
             <TextView style="@style/Cell" android:text="@string/in_state_tuition" />
             <TextView style="@style/Divider" android:text="" />
-            <TextView style="@style/Cell" android:text="@string/_26_000">
-            </TextView>
+            <TextView style="@style/Cell" android:id="@+id/in_tuition" />
         </TableRow>
         <TableRow>
             <TextView style="@style/Cell" android:text="@string/out_of_state_tuition" />
             <TextView style="@style/Divider" android:text="" />
-            <TextView style="@style/Cell" android:text="@string/_52_000">
-            </TextView>
+            <TextView style="@style/Cell" android:id="@+id/out_tuition" />
         </TableRow>
         <TableRow>
             <TextView style="@style/Cell" android:text="@string/debt_after_graduation_25th_75th_percentile" />
             <TextView style="@style/Divider" android:text="" />
-            <TextView style="@style/Cell" android:text="@string/_32_000_80_000">
-            </TextView>
+            <TextView style="@style/Cell" android:id="@+id/debt" />
         </TableRow>
         <TableRow>
             <TextView style="@style/Cell" android:text="@string/percent_of_students_receiving_financial_aid" />
             <TextView style="@style/Divider" android:text="" />
-            <TextView style="@style/Cell" android:text="@string/_60">
-            </TextView>
+            <TextView style="@style/Cell" android:id="@+id/fin_aid_percent" />
         </TableRow>
         <TableRow>
             <TextView style="@style/Cell" android:text="" />
@@ -239,53 +229,47 @@
         <TableRow>
             <TextView style="@style/Cell" android:text="@string/percent_male" />
             <TextView style="@style/Divider" android:text="" />
-            <TextView style="@style/Cell" android:text="@string/_50">
-            </TextView>
+            <TextView style="@style/Cell" android:id="@+id/percent_male" />
         </TableRow>
         <TableRow>
             <TextView style="@style/Cell" android:text="@string/percent_female" />
             <TextView style="@style/Divider" android:text="" />
-            <TextView style="@style/Cell" android:text="@string/_50">
-            </TextView>
+            <TextView style="@style/Cell" android:id="@+id/percent_female" />
         </TableRow>
         <TableRow>
             <TextView style="@style/Cell" android:text="@string/percent_caucasian" />
             <TextView style="@style/Divider" android:text="" />
-            <TextView style="@style/Cell" android:text="@string/_40">
-            </TextView>
+            <TextView style="@style/Cell" android:id="@+id/percent_white" />
         </TableRow>
         <TableRow>
             <TextView style="@style/Cell" android:text="@string/percent_asian" />
             <TextView style="@style/Divider" android:text="" />
-            <TextView style="@style/Cell" android:text="@string/_34">
-            </TextView>
+            <TextView style="@style/Cell" android:id="@+id/percent_asian" />
         </TableRow>
         <TableRow>
             <TextView style="@style/Cell" android:text="@string/percent_black_african_american" />
             <TextView style="@style/Divider" android:text="" />
-            <TextView style="@style/Cell" android:text="@string/_14"/>
+            <TextView style="@style/Cell" android:id="@+id/percent_black" />
         </TableRow>
         <TableRow>
             <TextView style="@style/Cell" android:text="@string/percent_latino_hispanic_other" />
             <TextView style="@style/Divider" android:text="" />
-            <TextView style="@style/Cell" android:text="@string/_16"/>
+            <TextView style="@style/Cell" android:id="@+id/percent_other" />
         </TableRow>
         <TableRow>
             <TextView style="@style/Cell" android:text="@string/percent_first_gen" />
             <TextView style="@style/Divider" android:text="" />
-            <TextView style="@style/Cell" android:text="@string/_40"/>
+            <TextView style="@style/Cell" android:id="@+id/percent_first_gen" />
         </TableRow>
         <TableRow>
             <TextView style="@style/Cell" android:text="@string/number_of_undergrads" />
             <TextView style="@style/Divider" android:text="" />
-            <TextView style="@style/Cell" android:text="@string/_40_000">
-            </TextView>
+            <TextView style="@style/Cell" android:id="@+id/percent_undergrad" />
         </TableRow>
         <TableRow>
             <TextView style="@style/Cell" android:text="@string/number_of_grads" />
             <TextView style="@style/Divider" android:text="" />
-            <TextView style="@style/Cell" android:text="@string/_5_000">
-            </TextView>
+            <TextView style="@style/Cell" android:id="@+id/percent_grad" />
         </TableRow>
         <TableRow>
             <TextView style="@style/Cell" android:text="" />
@@ -318,14 +302,12 @@
         <TableRow>
             <TextView style="@style/Cell" android:text="@string/net_tuition_revenue_per_student" />
             <TextView style="@style/Divider" android:text="" />
-            <TextView style="@style/Cell" android:text="@string/_16_000">
-            </TextView>
+            <TextView style="@style/Cell" android:id="@+id/net_revenue" />
         </TableRow>
         <TableRow>
             <TextView style="@style/Cell" android:text="@string/average_faculty_salary"/>
             <TextView style="@style/Divider" android:text="" />
-            <TextView style="@style/Cell" android:text="@string/_110_000">
-            </TextView>
+            <TextView style="@style/Cell" android:id="@+id/average_salary" />
         </TableRow>
 
     </TableLayout>
