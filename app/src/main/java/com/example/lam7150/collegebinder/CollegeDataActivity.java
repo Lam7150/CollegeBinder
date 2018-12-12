@@ -26,8 +26,8 @@ public class CollegeDataActivity extends AppCompatActivity {
         setContentView(R.layout.college_data);
         Intent intent = getIntent();
 
-        TextView college = (TextView) findViewById(R.id.college);
-        college.setText("LAMBO");
+        //TextView college = (TextView) findViewById(R.id.);
+        //college.setText("LAMBO");
 
         /** Creating API Calls */
         String APICall = urlBuilder("school", new String[]{"name"}, 0);

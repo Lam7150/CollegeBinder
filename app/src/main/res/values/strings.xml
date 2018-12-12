@@ -2,7 +2,7 @@
     <string name="app_name">CollegeBinder</string>
     <string name="edit_message">Search a College</string>
     <string name="button_search">Search</string>
-    <string name="welcome">Welcome!</string>
+    <string name="collegebinder">\"COLLEGE-BINDER\"</string>
     <string name="college_name">College Name</string>
     <string name="general">General</string>
     <string name="location">LOCATION</string>
