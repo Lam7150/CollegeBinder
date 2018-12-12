@@ -1,5 +1,7 @@
 <resources>
+    <string name="intro">The premiere application to finding data on over 700 colleges / universities in the US, enjoy.</string>
     <string name="app_name">CollegeBinder</string>
+    <string name="not_found">N/A</string>
     <string name="edit_message">Search a College</string>
     <string name="button_search">Search</string>
     <string name="collegebinder">\"COLLEGE-BINDER\"</string>
@@ -67,11 +69,5 @@
     <string name="_16_000_">$16,000</string>
     <string name="admissions">Admissions</string>
     <string name="university_of_illinois_at_urbana_champaign_">University of Illinois at Urbana-Champaign</string>
-    <string-array
-        name="collegeArray">
-        <item>University of Illinois Urbana-Champaign </item>
-        <item>Ohio State University</item>
-        <item>Purdue University</item>
-        <item>University of Illinois at Chicago</item>
-    </string-array>
+
 </resources>
