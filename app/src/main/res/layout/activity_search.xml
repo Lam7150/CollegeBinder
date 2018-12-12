@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SearchActivity">
+    tools:context="com.example.lam7150.collegebinder.SearchActivity">
 
     <com.mancj.materialsearchbar.MaterialSearchBar
         android:id="@+id/searchBar"
@@ -17,7 +18,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ListView
+    <include
+        layout="@layout/content_main"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
+
+    <!--<ListView
         android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,16 +37,8 @@
         android:clickable="true"
         android:onClick="viewData">
 
-    </ListView>
+    </ListView>-->
 
-    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/label"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:padding="10dip"
-        android:textSize="16sp"
-        android:textStyle="bold" >
-    </TextView>
 
     <!--<TextView
         android:id="@+id/textView"
@@ -55,4 +55,3 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchBar" />-->
 
-</android.support.constraint.ConstraintLayout>

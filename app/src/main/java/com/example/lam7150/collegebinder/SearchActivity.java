@@ -15,6 +15,7 @@ import android.widget.Toolbar;
 
 import com.mancj.materialsearchbar.MaterialSearchBar;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,26 +26,28 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        // intent to start activity from main activity
+        /** intent to start activity from main activity */
         Intent intent = getIntent();
 
-        //setup search view and search bar
+        /**setup search view and search bar */
         ListView lv = (ListView) findViewById(R.id.listView);
         MaterialSearchBar searchBar = (MaterialSearchBar) findViewById(R.id.searchBar);
         searchBar.setHint("Search Colleges/Institutions");
 
-        //test strings for search implementation
-        List<String> colleges = new ArrayList<>();
-        colleges.add("University of Illinois Urbana-Champaign");
-        colleges.add("Ohio State University");
-        colleges.add("Purdue University");
-        colleges.add("University of Illinois at Chicago");
 
-        //Adapter
-        final ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.activity_search, colleges);
+        /**Implementation of CSVFile.java to get array list of our colleges. */
+        InputStream inputStream = getResources().openRawResource(R.raw.colleges);
+        CSVFile csvFile = new CSVFile(inputStream);
+        List collegeList = csvFile.read();
+
+        /** Adapter, allows us to carry information (in this case our collegeList)
+         * and let it be useful and accessible to a layout (our activity_search.xml and content_main.xml)
+         */
+        final ArrayAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, collegeList);
         lv.setAdapter(adapter);
 
-        //search bar text change listener
+        /** search bar text change listener, narrows down our collegeList based on the search that is
+         * being made in real time, since there are around 700 total string to consider. */
         searchBar.addTextChangeListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -53,7 +56,7 @@ public class SearchActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                //search filter
+            //search filter
                 adapter.getFilter().filter(charSequence);
             }
 
@@ -63,16 +66,17 @@ public class SearchActivity extends AppCompatActivity {
             }
         });
 
-        //list view item clicked
+        /** Allow any list_view item to be clicked, triggers the CollegeDataActivity when clicked */
+        lv.setClickable(true);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(SearchActivity.this, adapter.getItem(i).toString(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(SearchActivity.this, adapter.getItem(i).toString(), Toast.LENGTH_SHORT).show();
+                //startActivity(new Intent(SearchActivity.this, CollegeDataActivity.class));
+                Intent intent = new Intent(SearchActivity.this, CollegeDataActivity.class);
+                startActivity(intent);
             }
         });
     }
 
-    public void viewData(View view) {
-        startActivity(new Intent(SearchActivity.this, CollegeDataActivity.class));
-    }
 }

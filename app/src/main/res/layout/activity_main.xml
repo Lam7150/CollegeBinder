@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#39E58F"
+    android:background="#dbebcd"
     tools:context="com.example.lam7150.collegebinder.MainActivity">
 
     <Button
@@ -21,16 +21,23 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="25dp"
-        android:text="@string/welcome"
+        android:layout_width="290dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="95dp"
+        android:fontFamily="@font/helveticabold"
+        android:text="@string/collegebinder"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat"
-        android:textSize="30sp"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily=""/>
 
 
 </android.support.constraint.ConstraintLayout>
