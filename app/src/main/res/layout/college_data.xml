@@ -55,12 +55,12 @@
         <TableRow>
             <TextView style="@style/Cell" android:text="@string/location" />
             <TextView style="@style/Divider" android:text="" />
-            <TextView style="@style/Cell" android:id="@+id/location" />
+            <TextView style="@style/Cell" android:id="@+id/location" android:text="@string/not_found"/>
         </TableRow>
         <TableRow>
             <TextView style="@style/Cell" android:text="@string/highest_education" />
             <TextView style="@style/Divider" android:text="" />
-            <TextView style="@style/Cell" android:id="@+id/degrees_awarded_highest" />
+            <TextView style="@style/Cell" android:id="@+id/degrees_awarded_highest" android:text="@string/not_found" />
         </TableRow>
         <TableRow>
             <TextView style="@style/Cell" android:text="@string/campus" />

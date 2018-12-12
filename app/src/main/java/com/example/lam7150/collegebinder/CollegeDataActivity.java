@@ -17,6 +17,8 @@ import java.util.HashMap;
 import org.json.JSONObject;
 import org.json.JSONArray;
 import org.json.JSONException;
+import com.android.volley.*;
+import com.android.volley.toolbox.*;
 
 public class CollegeDataActivity extends AppCompatActivity{
 
@@ -25,44 +27,44 @@ public class CollegeDataActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.college_data);
 
-        /** Fields to be displayed */
         // General
-        TextView location = findViewById(R.id.location);
-        TextView degrees_awarded_highest = findViewById(R.id.degrees_awarded_highest);
-        TextView locale = findViewById(R.id.locale);
-        TextView number_of_students = findViewById(R.id.number_of_students);
-        TextView admission_rate_overall = findViewById(R.id.admission_rate_overall);
-        TextView avg_net_price = findViewById(R.id.avg_net_price);
+        final TextView location = findViewById(R.id.location);
+        final TextView degrees_awarded_highest = findViewById(R.id.degrees_awarded_highest);
+        final TextView locale = findViewById(R.id.locale);
+        final TextView number_of_students = findViewById(R.id.number_of_students);
+        final TextView admission_rate_overall = findViewById(R.id.admission_rate_overall);
+        final TextView avg_net_price = findViewById(R.id.avg_net_price);
 
         // Admissions
-        TextView admission_rate_overall2 = findViewById(R.id.admission_rate_overall2);
-        TextView sat_overall = findViewById(R.id.sat_overall);
-        TextView sat_math = findViewById(R.id.sat_math);
-        TextView sat_reading = findViewById(R.id.sat_reading);
-        TextView sat_writing = findViewById(R.id.sat_writing);
-        TextView act_composite = findViewById(R.id.act_composite);
+        final TextView admission_rate_overall2 = findViewById(R.id.admission_rate_overall2);
+        final TextView sat_overall = findViewById(R.id.sat_overall);
+        final TextView sat_math = findViewById(R.id.sat_math);
+        final TextView sat_reading = findViewById(R.id.sat_reading);
+        final TextView sat_writing = findViewById(R.id.sat_writing);
+        final TextView act_composite = findViewById(R.id.act_composite);
 
         // Finances
-        TextView median_earnings = findViewById(R.id.median_earnings);
-        TextView in_tuition = findViewById(R.id.in_tuition);
-        TextView out_tuition = findViewById(R.id.out_tuition);
-        TextView debt = findViewById(R.id.debt);
-        TextView fin_aid_percent = findViewById(R.id.fin_aid_percent);
+        final TextView median_earnings = findViewById(R.id.median_earnings);
+        final TextView in_tuition = findViewById(R.id.in_tuition);
+        final TextView out_tuition = findViewById(R.id.out_tuition);
+        final TextView debt = findViewById(R.id.debt);
+        final TextView fin_aid_percent = findViewById(R.id.fin_aid_percent);
 
         // Diversity
-        TextView percent_male = findViewById(R.id.percent_male);
-        TextView percent_female = findViewById(R.id.percent_female);
-        TextView percent_white = findViewById(R.id.percent_white);
-        TextView percent_asian = findViewById(R.id.percent_asian);
-        TextView percent_black = findViewById(R.id.percent_black);
-        TextView percent_other = findViewById(R.id.percent_other);
-        TextView percent_first_gen = findViewById(R.id.percent_first_gen);
-        TextView percent_undergrad = findViewById(R.id.percent_undergrad);
-        TextView percent_grad = findViewById(R.id.percent_grad);
+        final TextView percent_male = findViewById(R.id.percent_male);
+        final TextView percent_female = findViewById(R.id.percent_female);
+        final TextView percent_white = findViewById(R.id.percent_white);
+        final TextView percent_asian = findViewById(R.id.percent_asian);
+        final TextView percent_black = findViewById(R.id.percent_black);
+        final TextView percent_other = findViewById(R.id.percent_other);
+        final TextView percent_first_gen = findViewById(R.id.percent_first_gen);
+        final TextView percent_undergrad = findViewById(R.id.percent_undergrad);
+        final TextView percent_grad = findViewById(R.id.percent_grad);
 
         // Fun Facts
         TextView net_revenue = findViewById(R.id.net_revenue);
         TextView average_salary = findViewById(R.id.average_salary);
+
 
         /** Building API Call */
         StringBuilder APICall = new StringBuilder(200);
@@ -74,176 +76,180 @@ public class CollegeDataActivity extends AppCompatActivity{
                 .append("&school.name=")
                 .append(name.replace(" ", "%20"));
 
-        try {
-            /** Getting latest data for college */
-            JSONObject collegeData = new JSONObject();
-            collegeData = collegeScorecard(APICall.toString());
-            String temp = collegeData.get("results").toString();
-            temp = temp.substring(1, temp.length() - 1);
-            collegeData = new JSONObject(temp);
-            collegeData = collegeData.getJSONObject("latest");
 
-            /** JSONObjects for specific categories */
-            JSONObject schoolInfo = collegeData.getJSONObject("school");
-            JSONObject studentInfo = collegeData.getJSONObject("student");
-            JSONObject admissionsInfo = collegeData.getJSONObject("admissions");
-            JSONObject SATInfo = admissionsInfo.getJSONObject("sat_scores");
-            JSONObject ACTInfo = admissionsInfo.getJSONObject("act_scores");
+        // Instantiate a request queue
+        RequestQueue queue = Volley.newRequestQueue(this);
+
+        // Request a string response from the provided URL.
+        JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.GET, APICall.toString(), null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            /** Getting latest data for college */
+                            JSONObject collegeData = response;
+                            String temp = collegeData.get("results").toString();
+                            temp = temp.substring(1, temp.length() - 1);
+                            collegeData = new JSONObject(temp);
+
+                            /** JSONObjects for specific categories */
+                            JSONObject latestInfo = collegeData.getJSONObject("latest");
+                            JSONObject schoolInfo = collegeData.getJSONObject("school");
+                            JSONObject studentInfo = latestInfo.getJSONObject("student");
+                            JSONObject earningsInfo = latestInfo.getJSONObject("earnings");
+                            JSONObject admissionsInfo = latestInfo.getJSONObject("admissions");
+                            JSONObject SATInfo = admissionsInfo.getJSONObject("sat_scores");
+                            JSONObject ACTInfo = admissionsInfo.getJSONObject("act_scores");
+
+                             /** Location */
+                             String locationText = schoolInfo.get("city").toString() + ", "
+                             + schoolInfo.get("state").toString();
+                             location.setText(locationText);
+
+                             /** Highest Degree Awarded */
+                             String degrees_awarded_highestText = schoolInfo.getJSONObject("degrees_awarded")
+                             .get("highest").toString();
+                             switch (degrees_awarded_highestText) {
+                             case "0": degrees_awarded_highestText = "No degree"; break;
+                             case "1": degrees_awarded_highestText = "Certificate"; break;
+                             case "2": degrees_awarded_highestText = "Associate's"; break;
+                             case "3": degrees_awarded_highestText = "Bachelor's"; break;
+                             case "4": degrees_awarded_highestText = "Graduate"; break;
+                             }
+                            degrees_awarded_highest.setText(degrees_awarded_highestText);
+
+                             /** Locale */
+                             String localeText = schoolInfo.get("locale").toString();
+                             switch (localeText) {
+                             case "11": localeText = "Large City"; break;
+                             case "12": localeText = "Midsize City"; break;
+                             case "13": localeText = "Small City"; break;
+                             case "21": localeText = "Large Suburbs"; break;
+                             case "22": localeText = "Midsize Suburbs"; break;
+                             case "23": localeText = "Small Suburbs"; break;
+                             case "31": localeText = "Fringe Town"; break;
+                             case "32": localeText = "Distant Town"; break;
+                             case "33": localeText = "Remote Town"; break;
+                             case "41": localeText = "Rural Fringe"; break;
+                             case "42": localeText = "Rural Distant"; break;
+                             case "43": localeText = "Rural Remote"; break;
+                             }
+                             locale.setText(localeText);
+
+                             /** Number of students */
+                             String number_of_studentsText  = String.valueOf((Integer) studentInfo.get("grad_students")
+                             + (Integer) studentInfo.get("undergrads_with_pell_grant_or_federal_student_loan")
+                             + (Integer) studentInfo.get("undergrads_non_degree_seeking"));
+                             number_of_students.setText(number_of_studentsText);
+
+                             /** Average net price */
+                             Object avg_net_priceText = latestInfo.getJSONObject("cost")
+                             .getJSONObject("avg_net_price")
+                             .get("public");
+
+                             if (avg_net_priceText == null) {
+                             avg_net_priceText = latestInfo.getJSONObject("cost")
+                             .getJSONObject("avg_net_price")
+                             .get("private");
+                             }
+
+                             avg_net_priceText = (Integer) avg_net_priceText;
+                             avg_net_price.setText(avg_net_priceText.toString());
+
+                             /** Admission rate */
+                             Double admission_rate_overallInt = (Double) admissionsInfo
+                             .getJSONObject("admission_rate")
+                             .get("overall") * 100;
+                             String admission_rate_overallText = admission_rate_overallInt.toString() + "%";
+                             admission_rate_overall.setText(admission_rate_overallText);
+                             admission_rate_overall2.setText(admission_rate_overallText);
+
+                             /** SAT Math */
+                             Integer sat_math25 = (Integer) SATInfo
+                             .getJSONObject("25th_percentile")
+                             .get("math");
+
+                             Integer sat_math75 = (Integer) SATInfo
+                             .getJSONObject("75th_percentile")
+                             .get("math");
+
+                             String sat_mathText = sat_math25.toString() + " - " + sat_math75.toString();
+                             sat_math.setText(sat_mathText);
+
+                             /** SAT Reading */
+                             Integer sat_reading25 = (Integer) SATInfo
+                             .getJSONObject("25th_percentile")
+                             .get("critical_reading");
+
+                             Integer sat_reading75 = (Integer) SATInfo
+                             .getJSONObject("75th_percentile")
+                             .get("critical_reading");
+
+                             String sat_readingText = sat_reading25.toString() + " - " + sat_reading75.toString();
+                             sat_reading.setText(sat_readingText);
+
+                             /** SAT writing */
+                             Integer sat_writing25 = (Integer) SATInfo
+                             .getJSONObject("25th_percentile")
+                             .get("writing");
+
+                             Integer sat_writing75 = (Integer) SATInfo
+                             .getJSONObject("75th_percentile")
+                             .get("writing");
+
+                             String sat_writingText = sat_writing25.toString() + " - " + sat_writing75.toString();
+                             sat_writing.setText(sat_writingText);
+
+                             /** SAT Overall */
+                             Integer sat_overall25 = sat_math25 + sat_reading25 + sat_writing25;
+                             Integer sat_overall75 = sat_math75 + sat_reading75 + sat_writing75;
+                             String sat_overallText = sat_overall25.toString() + " - " + sat_overall75.toString();
+                             sat_overall.setText(sat_overallText);
+
+                             /** ACT Overall */
+                             Integer act_overall25 = (Integer) ACTInfo.getJSONObject("25th_percentile").get("cumulative");
+                             Integer act_overall75 = (Integer) ACTInfo.getJSONObject("75th_percentile").get("cumulative");
+                             String act_overallText = act_overall25.toString() + " - " + act_overall75.toString();
+                             act_composite.setText(act_overallText);
+
+                            /** Median Earnings */
+                            String median_earningsText = earningsInfo.getJSONObject("6_yrs_after_entry")
+                                    .get("median").toString();
+                            median_earnings.setText(median_earningsText);
+
+                            /** In-state tuition */
+                            String in_tuitionText = latestInfo.getJSONObject("cost")
+                                    .getJSONObject("tuition")
+                                    .get("in_state").toString();
+                            in_tuition.setText(in_tuitionText);
+
+                            /** Out-of-state tuition */
+                            String out_state_tuitionText = latestInfo.getJSONObject("cost")
+                                    .getJSONObject("tuition")
+                                    .get("out_of_state").toString();
+                            out_tuition.setText(out_state_tuitionText);
 
 
-            /** Location */
-            String textLocation  = (String) schoolInfo.get("city") + ", "
-                    + schoolInfo.get("state");
-            location.setText(textLocation);
-
-            /** Highest Degree Awarded */
-            String degrees_awarded_highestText = schoolInfo.getJSONObject("degrees_awarded")
-                                                    .get("highest").toString();
-            switch (degrees_awarded_highestText) {
-                case "0": degrees_awarded_highestText = "No degree"; break;
-                case "1": degrees_awarded_highestText = "Certificate"; break;
-                case "2": degrees_awarded_highestText = "Associate's"; break;
-                case "3": degrees_awarded_highestText = "Bachelor's"; break;
-                case "4": degrees_awarded_highestText = "Graduate"; break;
+                            /**  */
+                            /**  */
+                            /**  */
+                            /**  */
+                            /**  */
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.println("it didn't work");
             }
-            degrees_awarded_highest.setText(degrees_awarded_highestText);
+        });
 
-            /** Locale */
-            String localeText  = schoolInfo.get("locale").toString();
-            switch (localeText) {
-                case "11": localeText = "Large City"; break;
-                case "12": localeText = "Midsize City"; break;
-                case "13": localeText = "Small City"; break;
-                case "21": localeText = "Large Suburbs"; break;
-                case "22": localeText = "Midsize Suburbs"; break;
-                case "23": localeText = "Small Suburbs"; break;
-                case "31": localeText = "Fringe Town"; break;
-                case "32": localeText = "Distant Town"; break;
-                case "33": localeText = "Remote Town"; break;
-                case "41": localeText = "Rural Fringe"; break;
-                case "42": localeText = "Rural Distant"; break;
-                case "43": localeText = "Rural Remote"; break;
-            }
-            locale.setText(localeText);
-
-            /** Number of students */
-            String number_of_studentsText  = String.valueOf((Integer) studentInfo.get("grad_students")
-                    + (Integer) studentInfo.get("undergrads_with_pell_grant_or_federal_student_loan")
-                    + (Integer) studentInfo.get("undergrads_non_degree_seeking"));
-            number_of_students.setText(number_of_studentsText);
-
-            /** Average net price */
-            Object avg_net_priceText = admissionsInfo.getJSONObject("cost")
-                    .getJSONObject("avg_net_price")
-                    .get("public");
-
-            if (avg_net_priceText == null) {
-                avg_net_priceText = admissionsInfo.getJSONObject("cost")
-                        .getJSONObject("avg_net_price")
-                        .get("private");
-            }
-
-            avg_net_priceText = (Integer) avg_net_priceText;
-            avg_net_price.setText(avg_net_priceText.toString());
-
-            /** Admission rate */
-            Double admission_rate_overallInt = (Double) admissionsInfo
-                                                        .getJSONObject("admission_rate")
-                                                        .get("overall") * 100;
-            String admission_rate_overallText = admission_rate_overallInt.toString() + "%";
-            admission_rate_overall.setText(admission_rate_overallText);
-            admission_rate_overall2.setText(admission_rate_overallText);
-
-            /** SAT Math */
-            Integer sat_math25 = (Integer) SATInfo
-                    .getJSONObject("25th_percentile")
-                    .get("math");
-
-            Integer sat_math75 = (Integer) SATInfo
-                    .getJSONObject("75th_percentile")
-                    .get("math");
-
-            String sat_mathText = sat_math25.toString() + " - " + sat_math75.toString();
-            sat_math.setText(sat_mathText);
-
-            /** SAT Reading */
-            Integer sat_reading25 = (Integer) SATInfo
-                    .getJSONObject("25th_percentile")
-                    .get("critical_reading");
-
-            Integer sat_reading75 = (Integer) SATInfo
-                    .getJSONObject("75th_percentile")
-                    .get("critical_reading");
-
-            String sat_readingText = sat_reading25.toString() + " - " + sat_reading75.toString();
-            sat_reading.setText(sat_readingText);
-
-            /** SAT writing */
-            Integer sat_writing25 = (Integer) SATInfo
-                    .getJSONObject("25th_percentile")
-                    .get("writing");
-
-            Integer sat_writing75 = (Integer) SATInfo
-                    .getJSONObject("75th_percentile")
-                    .get("writing");
-
-            String sat_writingText = sat_writing25.toString() + " - " + sat_writing75.toString();
-            sat_writing.setText(sat_writingText);
-
-            /** SAT Overall */
-            Integer sat_overall25 = sat_math25 + sat_reading25 + sat_writing25;
-            Integer sat_overall75 = sat_math75 + sat_reading75 + sat_writing75;
-            String sat_overallText = sat_overall25.toString() + " - " + sat_overall75.toString();
-            sat_overall.setText(sat_overallText);
-
-            /** ACT Overall */
-            Integer act_overall25 = (Integer) ACTInfo.getJSONObject("25th_percentile").get("cumulative");
-            Integer act_overall75 = (Integer) ACTInfo.getJSONObject("75th_percentile").get("cumulative");
-            String act_overallText = act_overall25.toString() + " - " + act_overall75.toString();
-            act_composite.setText(act_overallText);
-
-            /**  */
-            /**  */
-            /**  */
-            /**  */
-            /**  */
-            /**  */
-            /**  */
-            /**  */
-
-
-
-            temp = collegeData.getJSONObject("admissions")
-                    .getJSONObject("admission_rate")
-                    .get("overall").toString();
-            admission_rate_overall.setText(temp.toString());
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
+        // Add the request to the RequestQueue.
+        queue.add(jsonRequest);
     }
 
-    public static JSONObject collegeScorecard(String url) throws Exception {
-        /** Calling API */
-        // Setting up connection
-        HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
-
-        // Setting up HTML specifications
-        connection.setRequestMethod("GET");
-        connection.setRequestProperty("User-Agent", "Mozilla/5.0");
-
-        // Calling API and storing information stream
-        BufferedReader inputStream = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-        String inputLine;
-        StringBuffer response = new StringBuffer();
-        while ((inputLine = inputStream.readLine()) != null) {
-            response.append(inputLine);
-        }
-        inputStream.close();
-
-        return new JSONObject(response.toString());
-    }
 
     /**
      * Writes API Call to College Scorecard with inputted parameters
