@@ -9,7 +9,6 @@
 
     <Button
         android:id="@+id/button_send"
-        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="127dp"
         android:layout_height="44dp"
         android:layout_marginTop="250dp"
@@ -17,6 +16,7 @@
         android:onClick="sendMessage"
         android:text="@string/button_search"
         android:textColor="@color/cardview_light_background"
+        android:background="#dc000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -30,8 +30,8 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/helveticabold"
         android:text="@string/collegebinder"
+        android:textColor="#000000"
         android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,25 +41,24 @@
         android:id="@+id/intro_text"
         android:layout_width="350dp"
         android:layout_height="44dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="60dp"
         android:fontFamily="@font/eb_garamond"
+        android:text="@string/intro"
         android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="@string/intro" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/shoutouts"
         android:layout_width="350dp"
         android:layout_height="65dp"
+        android:layout_marginBottom="16dp"
         android:fontFamily="@font/eb_garamond"
+        android:text="@string/citation"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="483dp"
-        tools:text="Inspiration for UI theme and styling comes from Virgil Abloh.
-Web API brought to you and part by the US Department of Education." />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>

@@ -1,5 +1,6 @@
 <resources>
-    <string name="intro">The premiere application to finding data on over 700 colleges / universities in the US, enjoy.</string>
+    <string name="intro">The premier application to finding data on over 7000 colleges universities in the US, enjoy.</string>
+    <string name="citation"> Inspiration for UI theme and styling comes from Virgil Abloh. Web API brought to you and part by the US Department of Education. </string>
     <string name="app_name">CollegeBinder</string>
     <string name="not_found"></string>
     <string name="edit_message">Search a College</string>
