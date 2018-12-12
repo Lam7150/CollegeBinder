@@ -67,11 +67,7 @@
 
             <TextView style="@style/Cell" android:text="@string/highest_education" />
             <TextView style="@style/Divider" android:text="" />
-            <TextView style="@style/Cell" android:id="@+id/degrees_awarded_highest" android:text="@string/not_found" />
 
-            <TextView
-                style="@style/Cell"
-                android:text="@string/highest_education" />
 
             <TextView
                 style="@style/Divider"
@@ -276,7 +272,9 @@
             <TextView
                 android:id="@+id/sat_writing"
                 style="@style/Cell"
-                android:text="@string/not_found"></TextView>
+                android:text="@string/not_found">
+
+            </TextView>
         </TableRow>
 
         <TableRow>
@@ -290,9 +288,11 @@
                 android:text="" />
 
             <TextView
-                android:id="@+id/act_comp"
+                android:id="@+id/act_composite"
                 style="@style/Cell"
-                android:text="@string/not_found"></TextView>
+                android:text="@string/not_found">
+
+            </TextView>
         </TableRow>
 
         <TableRow>
@@ -303,7 +303,9 @@
 
             <TextView
                 style="@style/Cell"
-                android:text=""></TextView>
+                android:text="">
+
+            </TextView>
         </TableRow>
 
         <ScrollView android:layout_height="30dp">
@@ -321,7 +323,9 @@
                         android:layout_column="0"
                         android:layout_weight="1"
                         android:text="@string/finances"
-                        android:textAlignment="center"></TextView>
+                        android:textAlignment="center">
+
+                    </TextView>
                 </TableRow>
             </TableLayout>
         </ScrollView>
@@ -342,9 +346,11 @@
                 android:text="" />
 
             <TextView
-                android:id="@+id/median_earn"
+                android:id="@+id/median_earnings"
                 style="@style/Cell"
-                android:text="@string/not_found"></TextView>
+                android:text="@string/not_found">
+
+            </TextView>
         </TableRow>
 
         <TableRow>
@@ -358,9 +364,11 @@
                 android:text="" />
 
             <TextView
-                android:id="@+id/instate_tuition"
+                android:id="@+id/in_tuition"
                 style="@style/Cell"
-                android:text="@string/not_found"></TextView>
+                android:text="@string/not_found">
+
+            </TextView>
         </TableRow>
 
         <TableRow>
@@ -374,9 +382,11 @@
                 android:text="" />
 
             <TextView
-                android:id="@+id/outstate_tuition"
+                android:id="@+id/out_tuition"
                 style="@style/Cell"
-                android:text="@string/not_found"></TextView>
+                android:text="@string/not_found">
+
+            </TextView>
         </TableRow>
 
         <TableRow>
@@ -390,9 +400,11 @@
                 android:text="" />
 
             <TextView
-                android:id="@+id/debt_after_grad"
+                android:id="@+id/debt"
                 style="@style/Cell"
-                android:text="@string/not_found"></TextView>
+                android:text="@string/not_found">
+
+            </TextView>
         </TableRow>
 
         <TableRow>
@@ -406,9 +418,11 @@
                 android:text="" />
 
             <TextView
-                android:id="@+id/percent_financial"
+                android:id="@+id/fin_aid_percent"
                 style="@style/Cell"
-                android:text="@string/not_found"></TextView>
+                android:text="@string/not_found">
+
+            </TextView>
         </TableRow>
 
         <TableRow>
@@ -419,7 +433,9 @@
 
             <TextView
                 style="@style/Cell"
-                android:text=""></TextView>
+                android:text="">
+
+            </TextView>
         </TableRow>
 
         <ScrollView android:layout_height="30dp">
@@ -437,7 +453,9 @@
                         android:layout_column="0"
                         android:layout_weight="1"
                         android:text="@string/diversity"
-                        android:textAlignment="center"></TextView>
+                        android:textAlignment="center">
+
+                    </TextView>
                 </TableRow>
             </TableLayout>
         </ScrollView>
@@ -460,7 +478,9 @@
             <TextView
                 android:id="@+id/percent_male"
                 style="@style/Cell"
-                android:text="@string/not_found"></TextView>
+                android:text="@string/not_found">
+
+            </TextView>
         </TableRow>
 
         <TableRow>
@@ -476,7 +496,9 @@
             <TextView
                 android:id="@+id/percent_female"
                 style="@style/Cell"
-                android:text="@string/not_found"></TextView>
+                android:text="@string/not_found">
+
+            </TextView>
         </TableRow>
 
         <TableRow>
@@ -492,7 +514,9 @@
             <TextView
                 android:id="@+id/percent_white"
                 style="@style/Cell"
-                android:text="@string/not_found"></TextView>
+                android:text="@string/not_found">
+
+            </TextView>
         </TableRow>
 
         <TableRow>
@@ -508,7 +532,9 @@
             <TextView
                 android:id="@+id/percent_asian"
                 style="@style/Cell"
-                android:text="@string/not_found"></TextView>
+                android:text="@string/not_found">
+
+            </TextView>
         </TableRow>
 
         <TableRow>
@@ -538,7 +564,7 @@
                 android:text="" />
 
             <TextView
-                android:id="@+id/percent_latino"
+                android:id="@+id/percent_other"
                 style="@style/Cell"
                 android:text="@string/not_found" />
         </TableRow>
@@ -554,7 +580,7 @@
                 android:text="" />
 
             <TextView
-                android:id="@+id/percent_1stgen"
+                android:id="@+id/percent_first_gen"
                 style="@style/Cell"
                 android:text="@string/not_found" />
         </TableRow>
@@ -568,11 +594,12 @@
             <TextView
                 style="@style/Divider"
                 android:text="" />
-
             <TextView
-                android:id="@+id/number_undergrad"
+                android:id="@+id/percent_undergrad"
                 style="@style/Cell"
-                android:text="@string/not_found"></TextView>
+                android:text="@string/not_found">
+
+            </TextView>
         </TableRow>
 
         <TableRow>
@@ -586,7 +613,7 @@
                 android:text="" />
 
             <TextView
-                android:id="@+id/number_grad"
+                android:id="@+id/percent_grad"
                 style="@style/Cell"
                 android:text="@string/not_found"></TextView>
         </TableRow>
@@ -599,7 +626,9 @@
 
             <TextView
                 style="@style/Cell"
-                android:text=""></TextView>
+                android:text="">
+
+            </TextView>
         </TableRow>
 
         <ScrollView android:layout_height="30dp">
@@ -617,7 +646,9 @@
                         android:layout_column="0"
                         android:layout_weight="1"
                         android:text="@string/fun_facts"
-                        android:textAlignment="center"></TextView>
+                        android:textAlignment="center">
+
+                    </TextView>
                 </TableRow>
             </TableLayout>
         </ScrollView>
@@ -638,9 +669,11 @@
                 android:text="" />
 
             <TextView
-                android:id="@+id/net_tuition_rev"
+                android:id="@+id/net_revenue"
                 style="@style/Cell"
-                android:text="@string/not_found"></TextView>
+                android:text="@string/not_found">
+
+            </TextView>
         </TableRow>
 
         <TableRow>
@@ -654,9 +687,11 @@
                 android:text="" />
 
             <TextView
-                android:id="@+id/avg_fac_salary"
+                android:id="@+id/average_salary"
                 style="@style/Cell"
-                android:text="@string/not_found"></TextView>
+                android:text="@string/not_found">
+
+            </TextView>
         </TableRow>
 
     </TableLayout>
