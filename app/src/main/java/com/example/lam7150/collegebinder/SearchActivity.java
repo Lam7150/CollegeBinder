@@ -75,10 +75,10 @@ public class SearchActivity extends AppCompatActivity {
         lv.setClickable(true);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int i2, long l) {
                 //Toast.makeText(SearchActivity.this, adapter.getItem(i).toString(), Toast.LENGTH_SHORT).show();
                 //startActivity(new Intent(SearchActivity.this, CollegeDataActivity.class));
-                final String selected = (String) collegeList.get(i);
+                final String selected = (String) collegeList.get(i2);
                 Intent intent = new Intent(getApplicationContext(), CollegeDataActivity.class);
                 intent.putExtra("collegeName", selected);
                 startActivity(intent);

@@ -1,7 +1,7 @@
 <resources>
     <string name="intro">The premiere application to finding data on over 700 colleges / universities in the US, enjoy.</string>
     <string name="app_name">CollegeBinder</string>
-    <string name="not_found">N/A</string>
+    <string name="not_found"></string>
     <string name="edit_message">Search a College</string>
     <string name="button_search">Search</string>
     <string name="collegebinder">\"COLLEGE-BINDER\"</string>
@@ -50,21 +50,14 @@
     <string name="finances">Finances</string>
     <string name="_27_33">27 - 33</string>
     <string name="act_composite">ACT COMPOSITE</string>
-    <string name="_32_36">32 - 36</string>
     <string name="sat_writing">SAT WRITING</string>
-    <string name="_30_36">30 - 36</string>
     <string name="sat_reading">SAT READING</string>
-    <string name="_730_790">730 - 790</string>
     <string name="sat_math">SAT MATH</string>
-    <string name="_1310_1480">1310 - 1480</string>
     <string name="sat_overall_25_75th_percentile">SAT OVERALL (25 - 75TH PERCENTILE)</string>
-    <string name="_66">66%</string>
     <string name="admission_rate">ADMISSION RATE</string>
     <string name="student_size">STUDENT SIZE</string>
-    <string name="_40_000_">40,000+</string>
     <string name="religious_affiliation">RELIGIOUS AFFILIATION</string>
     <string name="none">None</string>
-    <string name="_66_">66%</string>
     <string name="average_net_cost">AVERAGE NET COST</string>
     <string name="_16_000_">$16,000</string>
     <string name="admissions">Admissions</string>
